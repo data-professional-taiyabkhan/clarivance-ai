@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="arcG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A7A8A"/>
+      <stop offset="55%" stop-color="#0F4A5A"/>
+      <stop offset="100%" stop-color="#0A1628"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Bold C arc — opens to the right, stroke-width 18 -->
+  <!-- Arc: center 60,60 radius 38, from ~40° to ~320° (leaving gap on right) -->
+  <path d="M 93,43 A 40,40 0 1 0 93,77"
+        fill="none"
+        stroke="url(#arcG)"
+        stroke-width="19"
+        stroke-linecap="round"/>
+
+  <!-- Small teal inner arc echo (adds depth) -->
+  <path d="M 87,49 A 30,30 0 1 0 87,71"
+        fill="none"
+        stroke="#22A0B4"
+        stroke-width="3"
+        stroke-linecap="round"
+        opacity="0.25"/>
+
+  <!-- Gold spark circle at top tip of C -->
+  <circle cx="93" cy="43" r="13" fill="#C9A84C" filter="url(#glow)"/>
+  <circle cx="93" cy="43" r="8"  fill="#E8C96A"/>
+  <circle cx="93" cy="43" r="4"  fill="white"/>
+
+  <!-- Small accent dot at bottom tip -->
+  <circle cx="93" cy="77" r="5" fill="#1A7A8A" opacity="0.6"/>
+</svg>

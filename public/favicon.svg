@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#13334A"/>
+      <stop offset="100%" stop-color="#0A1628"/>
+    </linearGradient>
+    <linearGradient id="c" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3CC6DB"/>
+      <stop offset="100%" stop-color="#1A7A8A"/>
+    </linearGradient>
+  </defs>
+  <!-- Solid rounded tile so the mark stays legible at 16px -->
+  <rect x="0" y="0" width="32" height="32" rx="7" fill="url(#bg)"/>
+  <!-- Bold C arc, opening to the right, centred -->
+  <path d="M 22.6 10.4 A 8.2 8.2 0 1 0 22.6 21.6"
+        fill="none" stroke="url(#c)" stroke-width="4.2" stroke-linecap="round"/>
+  <!-- Gold spark at the top tip of the C -->
+  <circle cx="22.6" cy="10.4" r="3.6" fill="#C9A84C"/>
+  <circle cx="22.6" cy="10.4" r="1.7" fill="#FBF3D9"/>
+</svg>

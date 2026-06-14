@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 120" width="580" height="120">
+  <defs>
+    <linearGradient id="arcD" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22A0B4"/>
+      <stop offset="100%" stop-color="#1A7A8A"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(0,0)">
+    <path d="M 93,43 A 40,40 0 1 0 93,77"
+          fill="none" stroke="url(#arcD)" stroke-width="19" stroke-linecap="round"/>
+    <circle cx="93" cy="43" r="13" fill="#C9A84C"/>
+    <circle cx="93" cy="43" r="8"  fill="#E8C96A"/>
+    <circle cx="93" cy="43" r="4"  fill="white"/>
+    <circle cx="93" cy="77" r="5"  fill="#22A0B4" opacity="0.7"/>
+  </g>
+  <line x1="128" y1="24" x2="128" y2="96" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+  <text x="144" y="74" font-family="Georgia, serif" font-size="42" font-weight="700"
+        letter-spacing="4" fill="white">CLARIVANCE</text>
+  <rect x="145" y="82" width="46" height="22" rx="5" fill="#1A7A8A"/>
+  <text x="168" y="97" font-family="Arial, sans-serif" font-size="13" font-weight="800"
+        fill="white" text-anchor="middle" letter-spacing="3">AI</text>
+  <text x="196" y="100" font-family="Arial, sans-serif" font-size="11"
+        fill="rgba(255,255,255,0.45)" letter-spacing="2.5">FINANCIAL INTELLIGENCE</text>
+</svg>
