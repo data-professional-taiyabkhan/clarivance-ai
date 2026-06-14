@@ -16,6 +16,9 @@ dist-ssr
 .nitro
 *.local
 
+# Vercel build cache
+.vercel
+
 # Local env
 .env
 .env.local
