@@ -88,7 +88,7 @@ const server = http.createServer(async (req, res) => {
   }
 
   if (!AIRTABLE_TOKEN || !AIRTABLE_BASE_ID) {
-    console.error("Missing AIRTABLE_TOKEN or AIRTABLE_BASE_ID env var.");
+    console.error(`[${new Date().toISOString()}] Missing AIRTABLE_TOKEN or AIRTABLE_BASE_ID env var.`);
     return send(res, 500, { error: "Server is not configured yet." }, cors);
   }
 
@@ -133,11 +133,11 @@ const server = http.createServer(async (req, res) => {
 
     if (!airtableRes.ok) {
       const detail = await airtableRes.text();
-      console.error("Airtable error", airtableRes.status, detail);
+      console.error(`[${new Date().toISOString()}] Airtable error`, airtableRes.status, detail);
       return send(res, 502, { error: "Could not save your submission. Please try again." }, cors);
     }
   } catch (err) {
-    console.error("Airtable request failed", err);
+    console.error(`[${new Date().toISOString()}] Airtable request failed`, err);
     return send(res, 502, { error: "Could not save your submission. Please try again." }, cors);
   }
 
@@ -145,5 +145,5 @@ const server = http.createServer(async (req, res) => {
 });
 
 server.listen(PORT, () => {
-  console.log(`Waitlist proxy listening on :${PORT}`);
+  console.log(`[${new Date().toISOString()}] Waitlist proxy listening on :${PORT} (Node ${process.version})`);
 });

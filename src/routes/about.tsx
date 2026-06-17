@@ -31,7 +31,7 @@ function AboutPage() {
         </div>
       </section>
 
-      <Section>
+      <Section id="founder">
         <div className="mx-auto grid max-w-5xl gap-12 lg:grid-cols-[1fr_2fr] lg:gap-16">
           <div className="lg:sticky lg:top-28 lg:self-start">
             <div className="mx-auto flex h-48 w-48 items-center justify-center rounded-full font-serif text-6xl font-bold text-white shadow-2xl gradient-teal-navy">

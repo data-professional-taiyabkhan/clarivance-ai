@@ -118,6 +118,13 @@ function WaitlistForm({ onSubmit }: { onSubmit: () => void }) {
 
     const form = e.currentTarget;
     const fd = new FormData(form);
+
+    // Honeypot: if this hidden field is filled, it's a bot — silently reject.
+    if (fd.get("_hp")) {
+      onSubmit();
+      return;
+    }
+
     const payload = {
       firstName: String(fd.get("firstName") ?? ""),
       lastName: String(fd.get("lastName") ?? ""),
@@ -155,6 +162,15 @@ function WaitlistForm({ onSubmit }: { onSubmit: () => void }) {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
+      {/* Honeypot — hidden from real users, bots fill it automatically */}
+      <input
+        type="text"
+        name="_hp"
+        aria-hidden="true"
+        tabIndex={-1}
+        autoComplete="off"
+        style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", opacity: 0 }}
+      />
       <div className="grid grid-cols-2 gap-4">
         <Field label="First name" name="firstName" required />
         <Field label="Last name" name="lastName" required />

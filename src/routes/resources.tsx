@@ -111,12 +111,14 @@ function ResourcesPage() {
             { e: "⚡", t: "The Weekly Financial Health Check", d: "A 15-minute Friday routine that will keep your business out of trouble forever." },
             { e: "🤖", t: "What the BFDE Actually Does (Plain English)", d: "Demystifying the Behavioural Financial DNA Engine — without the jargon." },
           ].map((a, i) => (
-            <article key={i} className="group rounded-2xl border border-border bg-white p-7 card-elevated transition-all hover:-translate-y-1 hover:shadow-lg">
+            <article key={i} className="group rounded-2xl border border-border bg-white p-7 card-elevated">
               <div className="text-3xl">{a.e}</div>
               <h3 className="mt-4 font-serif text-lg font-semibold leading-snug" style={{ color: "var(--navy)" }}>{a.t}</h3>
               <p className="mt-2.5 text-sm leading-relaxed" style={{ color: "var(--slate-mid)" }}>{a.d}</p>
-              <div className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-teal transition-transform group-hover:gap-2.5">
-                Read article <ArrowRight className="h-4 w-4" />
+              <div className="mt-5">
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-gold/10 px-3 py-1 text-xs font-semibold text-gold">
+                  Coming soon
+                </span>
               </div>
             </article>
           ))}

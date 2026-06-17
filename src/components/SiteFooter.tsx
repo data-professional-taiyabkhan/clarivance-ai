@@ -22,14 +22,14 @@ export function SiteFooter() {
           ]} />
           <FooterCol title="Company" links={[
             { to: "/about", label: "About" },
-            { to: "/about", label: "Founder" },
+            { to: "/about", hash: "founder", label: "Founder" },
             { to: "/faq", label: "FAQ" },
             { to: "/contact", label: "Contact" },
           ]} />
           <FooterCol title="Legal" links={[
-            { to: "/", label: "Privacy" },
-            { to: "/", label: "Terms" },
-            { to: "/", label: "Cookies" },
+            { to: "/privacy", label: "Privacy Policy" },
+            { to: "/terms", label: "Terms of Service" },
+            { to: "/cookies", label: "Cookie Policy" },
           ]} />
         </div>
 
@@ -38,7 +38,7 @@ export function SiteFooter() {
           <div className="flex flex-wrap gap-x-6 gap-y-2">
             <span>🇬🇧 UK data — AWS London</span>
             <span>🔒 UK GDPR Compliant</span>
-            <span>✅ HMRC MTD Approved</span>
+            <span>✅ HMRC MTD Compatible</span>
           </div>
         </div>
       </div>
@@ -46,7 +46,7 @@ export function SiteFooter() {
   );
 }
 
-function FooterCol({ title, links }: { title: string; links: { to: string; label: string }[] }) {
+function FooterCol({ title, links }: { title: string; links: { to: string; hash?: string; label: string }[] }) {
   return (
     <div>
       <h4 className="font-serif text-sm font-semibold uppercase tracking-wider text-gold">
@@ -55,7 +55,11 @@ function FooterCol({ title, links }: { title: string; links: { to: string; label
       <ul className="mt-4 space-y-2.5">
         {links.map((l, i) => (
           <li key={i}>
-            <Link to={l.to} className="text-sm text-white/75 transition-colors hover:text-white">
+            <Link
+              to={l.to}
+              hash={l.hash}
+              className="text-sm text-white/75 transition-colors hover:text-white"
+            >
               {l.label}
             </Link>
           </li>

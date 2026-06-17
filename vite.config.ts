@@ -22,6 +22,9 @@ export default defineConfig({
       { path: "/faq" },
       { path: "/contact" },
       { path: "/welcome" },
+      { path: "/privacy" },
+      { path: "/terms" },
+      { path: "/cookies" },
     ],
   },
 });

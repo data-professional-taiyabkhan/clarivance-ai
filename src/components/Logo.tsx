@@ -7,7 +7,7 @@ export function Logo({ variant = "dark", className = "" }: LogoProps) {
 
   return (
     <div className={`flex items-center gap-2.5 ${className}`} aria-label="CLARIVANCE AI — Financial Intelligence">
-      <img src={logoIcon} alt="" className="h-11 w-11 shrink-0" />
+      <img src={logoIcon} alt="" className="h-11 w-11 shrink-0" loading="eager" fetchPriority="high" />
       <div className="min-w-0 leading-none">
         <div
           className="font-serif text-[1.35rem] font-bold tracking-normal"
