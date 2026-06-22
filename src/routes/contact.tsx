@@ -106,7 +106,7 @@ function SuccessState() {
   );
 }
 
-const WAITLIST_ENDPOINT = import.meta.env.VITE_WAITLIST_ENDPOINT as string | undefined;
+const WAITLIST_ENDPOINT = import.meta.env.VITE_WAITLIST_ENDPOINT || "/api/waitlist";
 
 function WaitlistForm({ onSubmit }: { onSubmit: () => void }) {
   const [submitting, setSubmitting] = useState(false);
