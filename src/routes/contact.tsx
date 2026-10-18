@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { SITE_URL } from "./__root";
 import { SiteLayout } from "@/components/SiteLayout";
@@ -8,10 +8,10 @@ import { CheckCircle2, AlertTriangle, ArrowRight } from "lucide-react";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Join the Waitlist — Free 90-day trial | CLARIVANCE AI" },
-      { name: "description", content: "Reserve your free 90-day trial of CLARIVANCE AI. No credit card required. Built for UK sole traders facing MTD." },
-      { property: "og:title", content: "Reserve your free 90-day trial — CLARIVANCE AI" },
-      { property: "og:description", content: "Get ahead of MTD April 2026. Join the CLARIVANCE AI waitlist." },
+      { title: "Join the Waitlist | CLARIVANCE AI" },
+      { name: "description", content: "Join the CLARIVANCE AI waitlist to hear about the paid pilot (from May 2027) and the launch (September 2027). Free to join." },
+      { property: "og:title", content: "Join the CLARIVANCE AI waitlist" },
+      { property: "og:description", content: "Hear first about the CLARIVANCE AI pilot and launch." },
       { property: "og:url", content: SITE_URL + "/contact" },
     ],
     links: [{ rel: "canonical", href: SITE_URL + "/contact" }],
@@ -27,13 +27,13 @@ function ContactPage() {
       <section className="bg-mist py-16 lg:py-20" style={{ background: "var(--mist)" }}>
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <EyebrowBadge tone="gold">🚀 Free 90-day trial</EyebrowBadge>
+            <EyebrowBadge tone="gold">🚀 Join the waitlist</EyebrowBadge>
             <h1 className="mt-6 font-serif text-5xl font-semibold tracking-tight leading-[1.05] text-balance lg:text-6xl" style={{ color: "var(--navy)" }}>
-              Reserve your spot.
+              Join the waitlist.
             </h1>
             <p className="mx-auto mt-5 max-w-xl text-lg" style={{ color: "var(--slate-mid)" }}>
-              Join the waitlist today and we'll be in touch the moment CLARIVANCE AI is ready for you.
-              No credit card required.
+              We'll be in touch about the paid pilot (from May 2027) and the launch (September 2027).
+              Free to join; no credit card required.
             </p>
           </div>
 
@@ -44,9 +44,9 @@ function ContactPage() {
               </h2>
               <ol className="mt-7 space-y-6">
                 {[
-                  { t: "Free for 90 days at launch", d: "Full platform access, every feature, every plan. No credit card to start." },
-                  { t: "Founder-pricing locked in", d: "Waitlist members keep their introductory pricing for 12 months after launch." },
-                  { t: "Shape the product", d: "Direct access to the founder for early feedback. The roadmap is built around you." },
+                  { t: "Hear first about the pilot", d: "A small paid pilot is planned from May to August 2027, at £9 a month, for 10 to 15 businesses." },
+                  { t: "Help shape the product", d: "Tell us how you handle tax today. The founders read every message." },
+                  { t: "No commitment", d: "Joining is free. We'll only contact you about Clarivance, and you can leave the list at any time." },
                 ].map((s, i) => (
                   <li key={i} className="flex gap-4">
                     <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full font-serif text-base font-bold text-white gradient-teal-navy">
@@ -67,10 +67,10 @@ function ContactPage() {
                 <div className="flex items-start gap-3">
                   <AlertTriangle className="mt-0.5 h-5 w-5 flex-shrink-0 text-red-600" />
                   <div>
-                    <div className="font-serif text-base font-semibold text-red-700">MTD deadline: April 2026</div>
+                    <div className="font-serif text-base font-semibold text-red-700">Making Tax Digital: April 2027</div>
                     <p className="mt-1 text-sm text-red-900/80">
-                      Sole traders earning over £50,000 must comply. Don't wait until the last quarter
-                      to find your software, train on it, and migrate your data.
+                      From April 2027, Making Tax Digital for Income Tax applies to qualifying income over
+                      £30,000, and from April 2028 to income over £20,000.
                     </p>
                   </div>
                 </div>
@@ -99,8 +99,7 @@ function SuccessState() {
       </div>
       <h3 className="mt-5 font-serif text-2xl font-semibold" style={{ color: "var(--navy)" }}>You're on the list.</h3>
       <p className="mt-3 max-w-sm leading-relaxed" style={{ color: "var(--slate-mid)" }}>
-        Thanks for joining. We'll email you as soon as your free 90-day trial is ready.
-        In the meantime, keep an eye out for our MTD prep emails.
+        Thanks for joining. We'll be in touch about the pilot and the launch.
       </p>
     </div>
   );
@@ -175,19 +174,19 @@ function WaitlistForm({ onSubmit }: { onSubmit: () => void }) {
         <Field label="First name" name="firstName" required />
         <Field label="Last name" name="lastName" required />
       </div>
-      <Field label="Business name" name="businessName" />
-      <Field label="Business email" name="email" type="email" required />
+      <Field label="Business name (optional)" name="businessName" />
+      <Field label="Email" name="email" type="email" required />
 
-      <SelectField label="Business type" name="businessType" options={[
-        "Sole trader", "Limited company (1–5)", "Limited company (6–10)", "Accountant / Bookkeeper", "Other",
+      <SelectField label="I am a…" name="businessType" options={[
+        "Sole trader", "Landlord", "Sole trader and landlord", "Employed with a side business", "Accountancy or bookkeeping practice", "Other",
       ]} />
 
-      <SelectField label="Annual income" name="income" options={[
-        "Under £30k", "£30–50k", "£50–100k", "£100–250k", "Over £250k",
+      <SelectField label="Yearly income from self-employment or property" name="income" options={[
+        "Under £20k", "£20–30k", "£30–50k", "£50–100k", "Over £100k", "Prefer not to say",
       ]} />
 
-      <SelectField label="Accounting software" name="software" options={[
-        "Xero", "QuickBooks", "FreeAgent", "Sage", "Excel", "Nothing yet", "Other",
+      <SelectField label="What do you use now?" name="software" options={[
+        "Xero", "QuickBooks", "FreeAgent", "Sage", "My bank's tax pot or tools", "A spreadsheet", "My accountant handles it", "Nothing yet", "Other",
       ]} />
 
       <div>
@@ -224,15 +223,17 @@ function WaitlistForm({ onSubmit }: { onSubmit: () => void }) {
         style={{ color: "var(--navy)" }}
       >
         {submitting ? (
-          "Reserving your spot…"
+          "Joining…"
         ) : (
           <>
-            Reserve My Free Trial <ArrowRight className="ml-2 h-5 w-5" />
+            Join the waitlist <ArrowRight className="ml-2 h-5 w-5" />
           </>
         )}
       </button>
       <p className="text-center text-xs" style={{ color: "var(--slate-mid)" }}>
-        By submitting, you agree to receive launch updates from CLARIVANCE AI. Unsubscribe anytime.
+        We'll use your details only to contact you about Clarivance's pilot and launch. You can ask us to
+        remove them at any time. See our{" "}
+        <Link to="/privacy" className="underline underline-offset-2">privacy policy</Link>.
       </p>
     </form>
   );

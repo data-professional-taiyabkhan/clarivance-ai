@@ -32,15 +32,15 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "CLARIVANCE AI — Cash flow & MTD tax intelligence for UK micro-businesses" },
-      { name: "description", content: "AI-powered cash flow forecasting, real-time tax ring-fencing and one-click HMRC MTD filing for UK sole traders and micro-businesses." },
+      { title: "CLARIVANCE AI — Know what's safe to spend, after tax" },
+      { name: "description", content: "CLARIVANCE AI is building software for UK sole traders and landlords that shows how much they can safely spend after the tax they are building up. Launching September 2027." },
       { name: "author", content: "CLARIVANCE AI Ltd" },
       { name: "theme-color", content: "#0A1628" },
       { name: "robots", content: "index, follow" },
       // Open Graph
       { property: "og:site_name", content: "CLARIVANCE AI" },
       { property: "og:title", content: "CLARIVANCE AI" },
-      { property: "og:description", content: "Know your cash. Never miss your tax. Powered by AI." },
+      { property: "og:description", content: "Know your cash. Never miss your tax. What's safe to spend, after tax — for UK sole traders and landlords." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: SITE_URL + "/" },
       { property: "og:image", content: SITE_URL + "/og-image.png" },
@@ -51,7 +51,7 @@ export const Route = createRootRoute({
       // Twitter
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "CLARIVANCE AI" },
-      { name: "twitter:description", content: "Know your cash. Never miss your tax. Powered by AI." },
+      { name: "twitter:description", content: "Know your cash. Never miss your tax. What's safe to spend, after tax — for UK sole traders and landlords." },
       { name: "twitter:image", content: SITE_URL + "/og-image.png" },
     ],
     links: [
@@ -82,7 +82,7 @@ export const Route = createRootRoute({
               url: SITE_URL,
               logo: SITE_URL + "/icon-512.png",
               description:
-                "AI-powered cash flow forecasting, real-time tax ring-fencing and one-click HMRC Making Tax Digital filing for UK sole traders and micro-businesses.",
+                "In development: software for UK sole traders and landlords that shows how much they can safely spend after the tax they are building up. Launching September 2027.",
               areaServed: { "@type": "Country", name: "United Kingdom" },
               founder: { "@type": "Person", name: "Vinutha Chandrashekara" },
             },

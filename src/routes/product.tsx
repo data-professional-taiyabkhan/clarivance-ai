@@ -3,15 +3,15 @@ import { SITE_URL } from "./__root";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Section, EyebrowBadge, PrimaryCTA } from "@/components/ui-bits";
 import { CashWarningChart } from "@/components/Charts";
-import { ArrowRight, ShieldCheck, AlertCircle, Clock, CheckCircle2, Lock } from "lucide-react";
+import { ArrowRight, AlertCircle, Clock, Info, Calendar } from "lucide-react";
 
 export const Route = createFileRoute("/product")({
   head: () => ({
     meta: [
       { title: "Product — CashRadar, TaxShield & ActionFlow | CLARIVANCE AI" },
-      { name: "description", content: "Three AI modules in one platform: 52-week cash forecasts, real-time MTD tax ring-fencing, and weekly prescriptive actions." },
-      { property: "og:title", content: "CLARIVANCE AI Product — Three modules. Complete financial intelligence." },
-      { property: "og:description", content: "CashRadar, TaxShield and ActionFlow — the complete AI financial intelligence platform for UK micro-businesses." },
+      { name: "description", content: "How CLARIVANCE AI will work: a 13–52 week cash forecast, a recommended tax reserve and weekly actions for UK sole traders and landlords. In development; launching September 2027." },
+      { property: "og:title", content: "CLARIVANCE AI — How it will work" },
+      { property: "og:description", content: "What's safe to spend, after tax: CashRadar, TaxShield and ActionFlow. In development; launching September 2027." },
       { property: "og:url", content: SITE_URL + "/product" },
     ],
     links: [{ rel: "canonical", href: SITE_URL + "/product" }],
@@ -26,7 +26,7 @@ function ProductPage() {
       <CashRadarSection />
       <TaxShieldSection />
       <ActionFlowSection />
-      <BFDE />
+      <WhyDifferent />
     </SiteLayout>
   );
 }
@@ -35,14 +35,14 @@ function Hero() {
   return (
     <section className="bg-mist py-20 lg:py-28" style={{ background: "var(--mist)" }}>
       <div className="mx-auto max-w-4xl px-5 text-center lg:px-8">
-        <EyebrowBadge>The product</EyebrowBadge>
+        <EyebrowBadge>The product · in development</EyebrowBadge>
         <h1 className="mt-6 font-serif text-5xl font-semibold leading-[1.05] tracking-tight text-balance lg:text-6xl" style={{ color: "var(--navy)" }}>
-          Three Modules. One Platform. <br />
-          <span className="text-teal">Complete Financial Intelligence.</span>
+          One number you can act on. <br />
+          <span className="text-teal">Three views behind it.</span>
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg" style={{ color: "var(--slate-mid)" }}>
-          Forecast cash. Ring-fence tax. Act with confidence.
-          Built specifically for UK sole traders and micro-businesses.
+          What's safe to spend today, after tax, with the forecast, the tax reserve and the week's actions
+          one tap away. Being built for UK sole traders and landlords; launching September 2027.
         </p>
         <div className="mt-8">
           <PrimaryCTA to="/contact">Join the Waitlist</PrimaryCTA>
@@ -61,6 +61,14 @@ function FeatureItem({ children }: { children: React.ReactNode }) {
   );
 }
 
+function IllustrationTag() {
+  return (
+    <span className="rounded-full bg-white/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-white/60">
+      Illustration · not real data
+    </span>
+  );
+}
+
 function CashRadarSection() {
   return (
     <Section>
@@ -68,28 +76,30 @@ function CashRadarSection() {
         <div>
           <EyebrowBadge>📡 CashRadar™</EyebrowBadge>
           <h2 className="mt-5 font-serif text-4xl font-semibold leading-tight lg:text-5xl" style={{ color: "var(--navy)" }}>
-            See your cash 52 weeks ahead.
+            See your cash up to 52 weeks ahead.
           </h2>
           <p className="mt-5 text-lg leading-relaxed" style={{ color: "var(--slate-mid)" }}>
-            AI-powered forecasting that learns your business rhythm — from how each
-            client actually pays to your seasonal patterns.
+            A forecast of your cash for the next 13 to 52 weeks, shown as a range and learned from your own
+            bank history: which customers pay late, which months are strong, when the big bills land.
           </p>
           <ul className="mt-8 space-y-3.5">
-            <FeatureItem>13-week rolling forecast with weekly updates (Starter)</FeatureItem>
-            <FeatureItem>52-week extended forecast with scenario modelling (Growth & Pro)</FeatureItem>
-            <FeatureItem>Per-client payment delay prediction</FeatureItem>
-            <FeatureItem>Seasonal cash rhythm detection — specific to your business</FeatureItem>
-            <FeatureItem>Cash shortfall alerts up to 12 weeks in advance</FeatureItem>
-            <FeatureItem>"What if?" scenario builder</FeatureItem>
-            <FeatureItem>Connects to Xero, QuickBooks, FreeAgent, Sage & Open Banking</FeatureItem>
+            <FeatureItem>13 to 52-week forecast, shown as a range of likely outcomes</FeatureItem>
+            <FeatureItem>The late-payment pattern of each of your customers</FeatureItem>
+            <FeatureItem>Learns your seasonal rhythm from up to 24 months of bank history</FeatureItem>
+            <FeatureItem>Early warning when your cash after tax looks like dropping below zero</FeatureItem>
+            <FeatureItem>What-if scenarios (Plus plan)</FeatureItem>
+            <FeatureItem>Your bank through Open Banking from the pilot; Xero, QuickBooks and FreeAgent planned for 2028</FeatureItem>
           </ul>
         </div>
         <div className="rounded-2xl gradient-navy p-7 shadow-2xl ring-1 ring-white/10">
-          <div className="flex items-center justify-between">
-            <span className="text-sm font-semibold text-white">Cash forecast — next 52 weeks</span>
+          <div className="flex items-center justify-between gap-3">
+            <span className="text-sm font-semibold text-white">Cash after tax — next 52 weeks</span>
+            <IllustrationTag />
+          </div>
+          <div className="mt-3">
             <span className="rounded-full bg-red-500/20 px-2.5 py-1 text-xs font-semibold text-red-300">
               <AlertCircle className="mr-1 inline h-3 w-3" />
-              Dip detected
+              Dip ahead
             </span>
           </div>
           <div className="mt-5">
@@ -120,23 +130,20 @@ function TaxShieldSection() {
     <Section variant="mist">
       <div className="grid items-center gap-12 lg:grid-cols-2">
         <div className="rounded-2xl gradient-navy p-7 shadow-2xl ring-1 ring-white/10 lg:order-1">
-          <div className="flex items-center justify-between">
-            <span className="text-sm font-semibold text-white">TaxShield™ — Live</span>
-            <span className="rounded-full bg-green-500/20 px-2.5 py-1 text-xs font-semibold text-green-300">
-              <CheckCircle2 className="mr-1 inline h-3 w-3" />
-              MTD Q2 filing — READY
-            </span>
+          <div className="flex items-center justify-between gap-3">
+            <span className="text-sm font-semibold text-white">TaxShield™</span>
+            <IllustrationTag />
           </div>
           <div className="mt-6 rounded-xl border border-gold/30 bg-gold/10 p-6">
-            <div className="text-xs uppercase tracking-wider text-gold">Tax Ring-Fenced</div>
+            <div className="text-xs uppercase tracking-wider text-gold">Recommended tax reserve</div>
             <div className="mt-2 font-serif text-5xl font-semibold text-gold">£8,640</div>
-            <div className="mt-2 text-sm text-white/70">Income tax · Class 4 NI · VAT</div>
+            <div className="mt-2 text-sm text-white/70">Income tax · Class 4 NI · safety margin</div>
           </div>
           <div className="mt-5 space-y-2.5">
             {[
-              { l: "Income Tax", v: "£5,820" },
+              { l: "Income tax", v: "£5,820" },
               { l: "Class 4 NI", v: "£1,940" },
-              { l: "VAT (Q2)", v: "£880" },
+              { l: "Safety margin for an uncertain year", v: "£880" },
             ].map((r) => (
               <div key={r.l} className="flex items-center justify-between rounded-lg bg-white/5 px-4 py-2.5 text-sm">
                 <span className="text-white/70">{r.l}</span>
@@ -146,25 +153,29 @@ function TaxShieldSection() {
           </div>
           <div className="mt-5 flex items-center gap-2 rounded-lg bg-teal/15 px-4 py-3 text-sm text-teal-soft">
             <Clock className="h-4 w-4" />
-            Next MTD deadline: 5 Aug — 47 days
+            Next payment date: 31 January
+          </div>
+          <div className="mt-3 flex items-center gap-2 text-xs text-white/50">
+            <Info className="h-3.5 w-3.5" />
+            An estimate, with its assumptions one tap away
           </div>
         </div>
         <div className="lg:order-2">
           <EyebrowBadge tone="gold">🛡️ TaxShield™</EyebrowBadge>
           <h2 className="mt-5 font-serif text-4xl font-semibold leading-tight lg:text-5xl" style={{ color: "var(--navy)" }}>
-            Never face a tax shock again.
+            See the tax you're building up.
           </h2>
           <p className="mt-5 text-lg leading-relaxed" style={{ color: "var(--slate-mid)" }}>
-            Real-time tax calculation on every transaction, automatic ring-fencing,
-            and one-click HMRC MTD submissions.
+            Clarivance will work out the tax your income is building up, recommend a reserve to keep
+            aside in your own bank, and explain every change.
           </p>
           <ul className="mt-8 space-y-3.5">
-            <FeatureItem>Connects directly to HMRC MTD ITSA API</FeatureItem>
-            <FeatureItem>Real-time income tax calculation on every transaction</FeatureItem>
-            <FeatureItem>Class 4 NI and VAT ring-fencing</FeatureItem>
-            <FeatureItem>Quarterly MTD submissions — one click to file</FeatureItem>
-            <FeatureItem>Year-end self-assessment export</FeatureItem>
-            <FeatureItem>Tax calendar with countdown to quarterly deadlines</FeatureItem>
+            <FeatureItem>Income tax and Class 4 National Insurance for sole traders in England, Wales and Northern Ireland</FeatureItem>
+            <FeatureItem>A recommended reserve, with the reason each time it changes</FeatureItem>
+            <FeatureItem>Payment dates built in: 31 January, 31 July and payments on account</FeatureItem>
+            <FeatureItem>Property income, PAYE income, student loan and the High Income Child Benefit Charge at launch</FeatureItem>
+            <FeatureItem>Read-only: Clarivance tells you what to keep aside and never moves your money</FeatureItem>
+            <FeatureItem>MTD filing planned for 2028, once HMRC recognises Clarivance (Plus plan)</FeatureItem>
           </ul>
         </div>
       </div>
@@ -182,51 +193,41 @@ function ActionFlowSection() {
             Always know your next move.
           </h2>
           <p className="mt-5 text-lg leading-relaxed" style={{ color: "var(--slate-mid)" }}>
-            Don't just watch your numbers — act on them. Every week, three to five
-            specific actions ranked by impact.
+            Each Monday, a short summary: what's safe to spend, how your reserve changed and why,
+            and up to three actions for the week.
           </p>
           <ul className="mt-8 space-y-3.5">
-            <FeatureItem>Weekly prioritised action list — 3 to 5 specific tasks</FeatureItem>
-            <FeatureItem>Invoice chase recommendations with payment timing predictions</FeatureItem>
-            <FeatureItem>Expense deferral suggestions to bridge cash gaps</FeatureItem>
-            <FeatureItem>Automated payment reminder sequences</FeatureItem>
-            <FeatureItem>Financial health score — updated weekly</FeatureItem>
-            <FeatureItem>Client risk scoring</FeatureItem>
+            <FeatureItem>Monday summary: safe to spend and how your reserve changed</FeatureItem>
+            <FeatureItem>Up to three plain-English actions each week</FeatureItem>
+            <FeatureItem>Invoice-chase prompts based on how each customer usually pays</FeatureItem>
+            <FeatureItem>Early warning ahead of 31 January and 31 July</FeatureItem>
+            <FeatureItem>Share a read-only view with your accountant (Plus plan)</FeatureItem>
           </ul>
         </div>
         <div className="rounded-2xl gradient-navy p-7 shadow-2xl ring-1 ring-white/10">
-          <div className="mb-5 flex items-center justify-between">
+          <div className="mb-5 flex items-center justify-between gap-3">
             <span className="text-sm font-semibold text-white">This week's actions</span>
-            <span className="text-xs text-white/50">Updated 2h ago</span>
+            <IllustrationTag />
           </div>
           <div className="space-y-3">
             <ActionItem
-              priority="HIGH PRIORITY"
+              priority="THIS WEEK"
               tone="danger"
-              title="Chase invoice #1182 — Studio Bright"
-              meta="42 days overdue · £3,400 · Predicted pay date drifting"
+              title="Chase invoice 47"
+              meta="19 days old · this customer usually takes 40 days to pay"
             />
             <ActionItem
-              priority="THIS WEEK"
+              priority="KEEP ASIDE"
               tone="warning"
-              title="Set aside £1,240 for VAT Q2"
-              meta="MTD filing due in 18 days"
+              title="Keep £1,240 aside for 31 January"
+              meta="Payment on account"
             />
             <ActionItem
               priority="PLAN AHEAD"
               tone="teal"
-              title="Defer hardware purchase to August"
-              meta="Avoids £2,800 dip in week 22"
+              title="Watch the week of 14 June"
+              meta="If invoice 47 arrives late, cash after tax dips below zero that week"
             />
-          </div>
-          <div className="mt-6 rounded-xl border border-white/10 bg-white/[0.03] p-5">
-            <div className="flex items-center justify-between">
-              <span className="text-xs uppercase tracking-wider text-white/60">Financial Health Score</span>
-              <span className="font-serif text-3xl font-semibold text-gold">82<span className="text-base text-white/40">/100</span></span>
-            </div>
-            <div className="mt-3 h-2 w-full overflow-hidden rounded-full bg-white/10">
-              <div className="h-full rounded-full" style={{ width: "82%", background: "linear-gradient(90deg, var(--teal), var(--gold))" }} />
-            </div>
           </div>
         </div>
       </div>
@@ -252,22 +253,23 @@ function ActionItem({ priority, tone, title, meta }: { priority: string; tone: "
   );
 }
 
-function BFDE() {
+function WhyDifferent() {
   const items = [
-    { n: "01", t: "Client Payment Profiling", d: "Learn how each customer actually pays — not just their stated terms." },
-    { n: "02", t: "Seasonal Rhythm Detection", d: "Detect quarterly, monthly and weekly cycles unique to your business." },
-    { n: "03", t: "Unified Cash + Tax Timeline", d: "One forecast that combines what you'll earn and what you'll owe HMRC." },
-    { n: "04", t: "Early Crisis Detection", d: "Spot cash crunches up to 12 weeks before they hit — with time to act." },
+    { n: "01", t: "Built around your whole year", d: "Income tax is worked out on the year as a whole. Clarivance is being designed around that, not around a flat percentage." },
+    { n: "02", t: "A reserve you can rely on", d: "It recommends how much to keep aside and tells you why the figure changed. Every figure is labelled as an estimate." },
+    { n: "03", t: "Payment dates built in", d: "31 January and 31 July, including payments on account, are part of the picture from the start." },
+    { n: "04", t: "Read-only by design", d: "Clarivance will never move your money. You keep your bank and your accounting software." },
   ];
   return (
     <Section variant="navy">
       <div className="mx-auto max-w-3xl text-center">
-        <EyebrowBadge tone="white">The innovation</EyebrowBadge>
+        <EyebrowBadge tone="white">Why it's different</EyebrowBadge>
         <h2 className="mt-5 font-serif text-4xl font-semibold leading-tight text-balance text-white lg:text-5xl">
-          The Behavioural Financial DNA Engine
+          Safe to spend, after tax
         </h2>
         <p className="mx-auto mt-5 max-w-2xl text-lg text-white/70">
-          Every business has a unique financial fingerprint. CLARIVANCE AI learns yours.
+          Bank tax pots use a flat percentage. Accounting software shows the year so far.
+          Clarivance is being built to show what's yours to spend.
         </p>
       </div>
       <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -281,8 +283,8 @@ function BFDE() {
       </div>
       <div className="mt-12 flex justify-center">
         <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-5 py-2.5 text-sm font-semibold text-gold">
-          <Lock className="h-4 w-4" />
-          Patent-Pending Technology · 3 UK IPO Claims Filed · PCT International Application
+          <Calendar className="h-4 w-4" />
+          In development · Paid pilot planned from May 2027
         </div>
       </div>
     </Section>

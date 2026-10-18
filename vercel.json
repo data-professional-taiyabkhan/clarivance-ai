@@ -3,6 +3,10 @@
   "outputDirectory": "dist/client",
   "installCommand": "npm install --legacy-peer-deps",
   "framework": null,
+  "regions": ["lhr1"],
+  "redirects": [
+    { "source": "/welcome", "destination": "/", "permanent": false }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ],

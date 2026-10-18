@@ -25,7 +25,7 @@ function TermsPage() {
             Terms of Service
           </h1>
           <p className="mt-4 text-sm" style={{ color: "var(--slate-mid)" }}>
-            Last updated: June 2026 · CLARIVANCE AI Ltd
+            Last updated: October 2026 · CLARIVANCE AI Ltd
           </p>
         </div>
       </section>
@@ -42,26 +42,26 @@ function TermsPage() {
 
           <LegalBlock title="2. About CLARIVANCE AI">
             <p>
-              CLARIVANCE AI Ltd is a pre-launch financial technology company incorporated in England
-              and Wales. The platform described on this website is currently in development and has
-              not yet launched commercially.
+              CLARIVANCE AI Ltd is a pre-launch financial technology company registered in England and
+              Wales (company number 15505955). Our registered office is Office Number 8891, 182–184 High
+              Street North, London E6 2JA. The platform described on this website is in development and
+              has not yet launched commercially.
             </p>
           </LegalBlock>
 
-          <LegalBlock title="3. Waitlist and free trial">
+          <LegalBlock title="3. Waitlist">
             <ul className="list-disc space-y-1.5 pl-5" style={{ color: "var(--slate-mid)" }}>
               <li>Joining the waitlist is free and creates no financial obligation.</li>
-              <li>We will contact you by email when your free 90-day trial is ready.</li>
-              <li>Free trial terms (duration, features included) will be confirmed in your onboarding email.</li>
-              <li>After any paid trial period ends, your card will be charged at the plan rate unless you cancel.</li>
-              <li>You can cancel at any time — no long-term contracts.</li>
+              <li>We will contact you by email about the pilot and the launch.</li>
+              <li>Joining the waitlist does not reserve a place in the pilot or a price.</li>
+              <li>You can ask us to remove you from the waitlist at any time.</li>
             </ul>
           </LegalBlock>
 
           <LegalBlock title="4. Not financial advice">
             <p>
-              CLARIVANCE AI provides tools to help you organise, forecast, and file tax information.
-              Nothing on this website or within the platform constitutes personalised financial,
+              CLARIVANCE AI is being built to help you organise and forecast your cash and tax, and its
+              figures will be estimates. Nothing on this website or within the platform constitutes personalised financial,
               tax, or legal advice. You should consult a qualified accountant or financial advisor
               for advice specific to your circumstances.
             </p>
@@ -71,8 +71,7 @@ function TermsPage() {
             <p>
               All content on this website — including text, graphics, logos, and software — is the
               property of CLARIVANCE AI Ltd or its licensors and is protected by UK and international
-              intellectual property law. Three patent applications are pending at the UK Intellectual
-              Property Office (UK IPO) and internationally (PCT).
+              intellectual property law.
             </p>
             <p className="mt-3">
               You may not reproduce, distribute, or create derivative works from any content on

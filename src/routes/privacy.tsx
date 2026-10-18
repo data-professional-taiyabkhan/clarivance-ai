@@ -25,7 +25,7 @@ function PrivacyPage() {
             Privacy Policy
           </h1>
           <p className="mt-4 text-sm" style={{ color: "var(--slate-mid)" }}>
-            Last updated: June 2026 · CLARIVANCE AI Ltd
+            Last updated: October 2026 · CLARIVANCE AI Ltd
           </p>
         </div>
       </section>
@@ -36,7 +36,9 @@ function PrivacyPage() {
           <LegalBlock title="1. Who we are">
             <p>
               CLARIVANCE AI Ltd ("we", "us", "our") is the data controller for the personal data we
-              collect through this website and our services. We are incorporated in England and Wales.
+              collect through this website and our services. We are registered in England and Wales
+              (company number 15505955). Our registered office is Office Number 8891, 182–184 High Street
+              North, London E6 2JA.
             </p>
             <p className="mt-3">
               Contact: <a href="mailto:privacy@clarivanceai.co.uk" className="text-teal underline underline-offset-2">privacy@clarivanceai.co.uk</a>
@@ -47,10 +49,11 @@ function PrivacyPage() {
             <p>When you join our waitlist, we collect:</p>
             <ul className="mt-3 list-disc space-y-1.5 pl-5" style={{ color: "var(--slate-mid)" }}>
               <li>First and last name</li>
-              <li>Business email address</li>
-              <li>Business name and type (optional)</li>
-              <li>Annual income range (optional)</li>
-              <li>Accounting software currently in use (optional)</li>
+              <li>Email address</li>
+              <li>Business name (optional)</li>
+              <li>What describes you best, for example sole trader or landlord (optional)</li>
+              <li>Income range (optional)</li>
+              <li>What you use now to manage your tax (optional)</li>
               <li>Any message you choose to include (optional)</li>
             </ul>
             <p className="mt-3">
@@ -61,9 +64,8 @@ function PrivacyPage() {
 
           <LegalBlock title="3. How we use your data">
             <ul className="list-disc space-y-1.5 pl-5" style={{ color: "var(--slate-mid)" }}>
-              <li>To contact you when CLARIVANCE AI launches and your free trial is ready</li>
-              <li>To send you relevant MTD preparation updates (you can unsubscribe at any time)</li>
-              <li>To understand who our users are and improve our product</li>
+              <li>To contact you about the CLARIVANCE AI pilot and launch</li>
+              <li>To understand who is interested in CLARIVANCE AI, for example how many sole traders and landlords have joined</li>
             </ul>
             <p className="mt-3">
               Our legal basis for processing is <strong>legitimate interests</strong> (communicating
@@ -73,16 +75,17 @@ function PrivacyPage() {
 
           <LegalBlock title="4. Where your data is stored">
             <p>
-              Waitlist data is stored in <strong>Airtable</strong> (a US-based service covered by
-              Standard Contractual Clauses under UK GDPR). All other data remains within the UK on
-              AWS London (eu-west-2) infrastructure.
+              This website is hosted by <strong>Vercel</strong>. When you join the waitlist, your details
+              are processed by a Vercel function running in London and stored in <strong>Airtable</strong>.
+              Airtable is based in the United States, so your details are transferred outside the UK under
+              the safeguards set out in Airtable's data processing terms.
             </p>
           </LegalBlock>
 
           <LegalBlock title="5. How long we keep your data">
             <p>
-              We keep your waitlist data for as long as CLARIVANCE AI is operating and you remain
-              a prospective or active customer. You may request deletion at any time by emailing us.
+              We keep your waitlist details until 12 months after CLARIVANCE AI launches, then delete
+              them unless you have become a customer. You can ask us to delete them sooner at any time.
             </p>
           </LegalBlock>
 
@@ -100,22 +103,35 @@ function PrivacyPage() {
               To exercise any of these rights, email{" "}
               <a href="mailto:privacy@clarivanceai.co.uk" className="text-teal underline underline-offset-2">
                 privacy@clarivanceai.co.uk
-              </a>. We will respond within 30 days. You also have the right to lodge a complaint
-              with the{" "}
+              </a>. We will respond within one month.
+            </p>
+          </LegalBlock>
+
+          <LegalBlock title="7. Complaints">
+            <p>
+              If you are unhappy with how we have handled your personal data, please tell us first: email{" "}
+              <a href="mailto:privacy@clarivanceai.co.uk" className="text-teal underline underline-offset-2">
+                privacy@clarivanceai.co.uk
+              </a>{" "}
+              with "Complaint" in the subject line. We will acknowledge your complaint within 30 days, look
+              into it, and tell you the outcome without undue delay.
+            </p>
+            <p className="mt-3">
+              If you are still not satisfied, you can complain to the{" "}
               <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer" className="text-teal underline underline-offset-2">
                 Information Commissioner's Office (ICO)
               </a>.
             </p>
           </LegalBlock>
 
-          <LegalBlock title="7. Cookies">
+          <LegalBlock title="8. Cookies">
             <p>
               We use minimal cookies. For full details, see our{" "}
               <Link to="/cookies" className="text-teal underline underline-offset-2">Cookie Policy</Link>.
             </p>
           </LegalBlock>
 
-          <LegalBlock title="8. Changes to this policy">
+          <LegalBlock title="9. Changes to this policy">
             <p>
               We may update this policy from time to time. The date at the top of this page will
               always reflect the most recent version. Continued use of our site after changes

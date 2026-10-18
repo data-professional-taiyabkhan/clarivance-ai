@@ -9,8 +9,8 @@ export function SiteFooter() {
           <div className="lg:col-span-2">
             <Logo variant="light" />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/70">
-              AI-powered financial intelligence for UK sole traders and micro-businesses.
-              Cash flow, tax, and action — in one platform.
+              What's safe to spend, after tax — for UK sole traders and landlords.
+              In development; launching September 2027.
             </p>
           </div>
 
@@ -22,7 +22,7 @@ export function SiteFooter() {
           ]} />
           <FooterCol title="Company" links={[
             { to: "/about", label: "About" },
-            { to: "/about", hash: "founder", label: "Founder" },
+            { to: "/about", hash: "founder", label: "Founders" },
             { to: "/faq", label: "FAQ" },
             { to: "/contact", label: "Contact" },
           ]} />
@@ -33,13 +33,12 @@ export function SiteFooter() {
           ]} />
         </div>
 
-        <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-8 text-sm text-white/60 md:flex-row md:items-center md:justify-between">
+        <div className="mt-14 space-y-3 border-t border-white/10 pt-8 text-sm text-white/60">
           <p>© {new Date().getFullYear()} CLARIVANCE AI Ltd. All rights reserved.</p>
-          <div className="flex flex-wrap gap-x-6 gap-y-2">
-            <span>🇬🇧 UK data — AWS London</span>
-            <span>🔒 UK GDPR Compliant</span>
-            <span>✅ HMRC MTD Compatible</span>
-          </div>
+          <p className="text-xs leading-relaxed text-white/50">
+            CLARIVANCE AI Ltd is registered in England and Wales, company number 15505955.
+            Registered office: Office Number 8891, 182–184 High Street North, London E6 2JA.
+          </p>
         </div>
       </div>
     </footer>

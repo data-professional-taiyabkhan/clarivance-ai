@@ -2,15 +2,15 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SITE_URL } from "./__root";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Section, EyebrowBadge } from "@/components/ui-bits";
-import { Eye, Flag, Leaf, Lightbulb } from "lucide-react";
+import { Eye, Flag, Lock, Lightbulb } from "lucide-react";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Built by a finance professional | CLARIVANCE AI" },
-      { name: "description", content: "Founded by Vinutha Chandrashekara — 10+ years in SME finance. CLARIVANCE AI was built to give every UK micro-business the financial clarity of a CFO." },
-      { property: "og:title", content: "About CLARIVANCE AI — Built by a finance professional, for finance professionals." },
-      { property: "og:description", content: "Meet our founder and our mission to give 5.5M UK micro-businesses CFO-grade financial intelligence." },
+      { title: "About | CLARIVANCE AI" },
+      { name: "description", content: "CLARIVANCE AI Ltd was co-founded by Vinutha Chandrashekara, who has worked in accounting since 2017, to show self-employed people what they can afford to spend after tax." },
+      { property: "og:title", content: "About CLARIVANCE AI" },
+      { property: "og:description", content: "Our mission: to let every self-employed person in the UK see, on any day of the year, what they can afford to spend after tax." },
       { property: "og:url", content: SITE_URL + "/about" },
     ],
     links: [{ rel: "canonical", href: SITE_URL + "/about" }],
@@ -25,8 +25,8 @@ function AboutPage() {
         <div className="mx-auto max-w-4xl px-5 text-center lg:px-8">
           <EyebrowBadge>About us</EyebrowBadge>
           <h1 className="mt-6 font-serif text-5xl font-semibold tracking-tight leading-[1.05] text-balance lg:text-6xl" style={{ color: "var(--navy)" }}>
-            Built by a Finance Professional. <br />
-            <span className="text-teal">Built for Finance Professionals.</span>
+            Founded by an accountant. <br />
+            <span className="text-teal">For the UK's self-employed.</span>
           </h1>
         </div>
       </section>
@@ -39,44 +39,37 @@ function AboutPage() {
             </div>
             <div className="mt-6 text-center">
               <div className="font-serif text-2xl font-semibold" style={{ color: "var(--navy)" }}>Vinutha Chandrashekara</div>
-              <div className="mt-1 text-sm font-semibold text-teal">Founder & CEO — CLARIVANCE AI</div>
+              <div className="mt-1 text-sm font-semibold text-teal">Co-founder & CEO — CLARIVANCE AI</div>
             </div>
           </div>
           <div>
             <div className="space-y-5 text-lg leading-relaxed" style={{ color: "var(--ink)" }}>
               <p>
-                Vinutha started her career in SME finance over a decade ago, working with sole
-                traders, freelancers, and micro-business owners across the UK. She saw the same
-                story play out, again and again: capable founders running profitable businesses,
-                blindsided by a tax bill or a cash crunch they had no warning about.
+                Vinutha has worked in accounting since 2017, and in UK practice since 2023, supporting
+                small businesses with bookkeeping, management accounts, cash flow, VAT and compliance.
+                Year after year she saw capable people caught out by a tax bill they could have planned for.
               </p>
               <p>
-                The advisory tools available — spreadsheets, basic accounting software, generic
-                bank dashboards — weren't built for the realities of a one-person business. And
-                when Fluidly, the UK's leading cash flow AI, shut down in 2023, an entire
-                category of innovation simply vanished.
+                The tools people use today don't answer the question that matters. A bank tax pot sets
+                aside a flat percentage, and accounting software runs the year so far through the tax
+                bands as if the year had already finished. Nobody knows in July how the year will end.
               </p>
               <p>
-                CLARIVANCE AI is the platform Vinutha wished she had for every client she's
-                worked with — combining cash flow intelligence, real-time tax ring-fencing,
-                and prescriptive weekly actions in one place. It's purpose-built for the UK
-                MTD era and for the businesses HMRC's deadlines hit hardest.
+                CLARIVANCE AI is being built to give self-employed people one figure they can act on:
+                what's safe to spend, after the tax they are building up. Vinutha owns the tax method behind it.
               </p>
               <p>
-                Today, CLARIVANCE AI Ltd is in pre-launch with three patent-pending innovations
-                filed at the UK IPO and £60,000+ in early advisory revenue from the founder's
-                consultancy practice — proof the problem is real and the solution is wanted.
+                Today, CLARIVANCE AI Ltd is pre-launch. A paid pilot is planned for May 2027 and the
+                launch for September 2027.
               </p>
             </div>
 
             <div className="mt-8 flex flex-wrap gap-2">
               {[
-                "BSc Accounting & Finance",
-                "ACCA Part-Qualified",
-                "Xero Advisor",
-                "QuickBooks ProAdvisor",
-                "MTD Practitioner",
-                "10+ Years SME Finance",
+                "MSc in Banking and Finance",
+                "Bachelor of Commerce",
+                "Accounting roles since 2017",
+                "UK practice since 2023",
               ].map((c) => (
                 <span key={c} className="rounded-full border border-teal/30 bg-teal/10 px-3.5 py-1.5 text-xs font-semibold text-teal">
                   {c}
@@ -92,18 +85,18 @@ function AboutPage() {
           <EyebrowBadge tone="white">Our mission</EyebrowBadge>
           <blockquote className="mt-6 font-serif text-3xl leading-tight text-balance lg:text-4xl xl:text-5xl">
             <span className="text-gold">"</span>
-            <span className="text-gold"> To give every UK micro-business owner the financial clarity and
-            confidence of a CFO — at the price of a coffee subscription. </span>
+            <span className="text-gold"> To let every self-employed person in the UK see, on any day of the
+            year, what they can afford to spend after tax. </span>
             <span className="text-gold">"</span>
           </blockquote>
         </div>
 
         <div className="mt-16 grid grid-cols-2 gap-6 lg:grid-cols-4">
           {[
-            { v: "5.5M", l: "businesses we serve" },
-            { v: "1.5M+", l: "facing MTD" },
-            { v: "60%", l: "SME failures from cash" },
-            { v: "3", l: "patent claims filed" },
+            { v: "4.53M", l: "self-employed people in the UK (ONS, 2026)" },
+            { v: "2.88M", l: "unincorporated landlords (HMRC, 2026)" },
+            { v: "~1M", l: "missed the January 2026 Self Assessment deadline (HMRC)" },
+            { v: "~18,000", l: "Self Assessment Time to Pay plans, April to early December 2025 (HMRC)" },
           ].map((s) => (
             <div key={s.l} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 text-center">
               <div className="font-serif text-4xl font-semibold text-gold lg:text-5xl">{s.v}</div>
@@ -122,10 +115,10 @@ function AboutPage() {
         </div>
         <div className="mx-auto mt-12 grid max-w-4xl gap-6 md:grid-cols-2">
           {[
-            { i: <Eye className="h-6 w-6" />, t: "Transparency First", d: "Clear pricing, plain English, no dark patterns. You always know what you're paying for." },
-            { i: <Flag className="h-6 w-6" />, t: "UK-First, Always", d: "Built for UK tax law, UK banking, UK businesses. Data stays in AWS London — full stop." },
-            { i: <Leaf className="h-6 w-6" />, t: "Net Zero by 2030", d: "Carbon-aware infrastructure, ethical AI use, and a published sustainability commitment." },
-            { i: <Lightbulb className="h-6 w-6" />, t: "Genuine Innovation", d: "Three patent-pending claims at the UK IPO. We're not wrapping ChatGPT — we're building real IP." },
+            { i: <Eye className="h-6 w-6" />, t: "Transparency first", d: "Clear pricing, plain English, no dark patterns. You always know what you're paying for." },
+            { i: <Flag className="h-6 w-6" />, t: "UK-first", d: "Built for UK tax law and UK businesses. Customer data will be held in the UK." },
+            { i: <Lock className="h-6 w-6" />, t: "Read-only by design", d: "Clarivance will never move your money. You keep your bank and your accounting software." },
+            { i: <Lightbulb className="h-6 w-6" />, t: "Honest numbers", d: "Every figure will be labelled as an estimate, with the assumptions behind it one tap away. No accuracy claims until they have been tested." },
           ].map((v) => (
             <div key={v.t} className="rounded-2xl border border-border bg-white p-7 card-elevated">
               <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-teal/10 text-teal">

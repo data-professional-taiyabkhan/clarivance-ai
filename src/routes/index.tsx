@@ -3,15 +3,15 @@ import { SITE_URL } from "./__root";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Section, EyebrowBadge, PrimaryCTA, OutlineCTA, Reveal } from "@/components/ui-bits";
 import { CashFlowChart } from "@/components/Charts";
-import { ArrowRight, ShieldCheck, Radar, Zap, Lock, TrendingUp, AlertTriangle, Wallet, Calendar } from "lucide-react";
+import { ArrowRight, ShieldCheck, Radar, Zap, Wallet, Calendar } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "CLARIVANCE AI — Cash flow & MTD tax intelligence for UK micro-businesses" },
-      { name: "description", content: "AI-powered 52-week cash flow forecasts, real-time tax ring-fencing and one-click HMRC MTD filing for UK sole traders and micro-businesses." },
+      { title: "CLARIVANCE AI — Know what's safe to spend, after tax" },
+      { name: "description", content: "CLARIVANCE AI is building software for UK sole traders and landlords that shows one figure they can act on: how much they can safely spend after the tax they are building up. Launching September 2027." },
       { property: "og:title", content: "CLARIVANCE AI — Know your cash. Never miss your tax." },
-      { property: "og:description", content: "AI-powered cash flow forecasting and MTD tax automation for UK sole traders and micro-businesses." },
+      { property: "og:description", content: "What's safe to spend, after tax — for UK sole traders and landlords. Join the waitlist." },
       { property: "og:url", content: SITE_URL + "/" },
     ],
     links: [{ rel: "canonical", href: SITE_URL + "/" }],
@@ -25,14 +25,8 @@ export const Route = createFileRoute("/")({
           applicationCategory: "FinanceApplication",
           operatingSystem: "Web",
           description:
-            "AI-powered 52-week cash flow forecasts, real-time tax ring-fencing and one-click HMRC Making Tax Digital filing for UK sole traders and micro-businesses.",
+            "In development: software for UK sole traders and landlords that shows how much they can safely spend after the tax they are building up. Launching September 2027.",
           url: SITE_URL,
-          offers: {
-            "@type": "Offer",
-            price: "0",
-            priceCurrency: "GBP",
-            description: "Free 90-day trial at launch",
-          },
         }),
       },
     ],
@@ -47,7 +41,7 @@ function HomePage() {
       <StatsStrip />
       <Problems />
       <Modules />
-      <BFDESection />
+      <WhyDifferent />
       <Integrations />
       <FounderQuote />
       <WaitlistCTA />
@@ -63,21 +57,22 @@ function Hero() {
       }} />
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
-          <EyebrowBadge tone="gold">🚀 Now accepting waitlist sign-ups — Free 90-day trial at launch</EyebrowBadge>
+          <EyebrowBadge tone="gold">🚀 Now accepting waitlist sign-ups · Launching September 2027</EyebrowBadge>
           <h1 className="mt-6 font-serif text-5xl font-semibold leading-[1.05] tracking-tight text-balance md:text-6xl lg:text-7xl" style={{ color: "var(--navy)" }}>
             Know your cash. <br className="hidden md:block" />
-            Never miss your tax. <span className="text-teal">Powered by AI.</span>
+            <span className="text-teal">Never miss your tax.</span>
           </h1>
           <p className="mx-auto mt-7 max-w-2xl text-lg leading-relaxed text-balance" style={{ color: "var(--slate-mid)" }}>
-            CLARIVANCE AI gives UK sole traders and micro-businesses a 52-week cash flow forecast,
-            real-time tax ring-fencing, and one-click HMRC Making Tax Digital filing — all in one platform.
+            CLARIVANCE AI is building one figure UK sole traders and landlords can act on: how much
+            they can safely spend this week, next month and at quarter-end, after the tax they are
+            building up has been set aside.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <PrimaryCTA to="/contact">Join the Waitlist — Free</PrimaryCTA>
-            <OutlineCTA to="/product">See How It Works <ArrowRight className="ml-2 h-4 w-4" /></OutlineCTA>
+            <OutlineCTA to="/product">See How It Will Work <ArrowRight className="ml-2 h-4 w-4" /></OutlineCTA>
           </div>
           <p className="mt-5 text-sm" style={{ color: "var(--slate-mid)" }}>
-            No credit card required · Cancel anytime · UK data only (AWS London)
+            Free to join · No credit card required
           </p>
         </div>
 
@@ -98,16 +93,16 @@ function DashboardMockup() {
           <div className="h-2.5 w-2.5 rounded-full bg-yellow-400/70" />
           <div className="h-2.5 w-2.5 rounded-full bg-green-400/70" />
         </div>
-        <span className="text-xs uppercase tracking-widest text-white/50">Dashboard · Live</span>
+        <span className="text-xs uppercase tracking-widest text-white/50">Illustration · not real data</span>
       </div>
       <div className="grid gap-4 md:grid-cols-3">
-        <MetricTile label="Cash in 13 weeks" value="£24,810" delta="+12.4%" tone="success" icon={<Wallet className="h-4 w-4" />} />
-        <MetricTile label="Tax Ring-Fenced" value="£8,640" delta="MTD Q2 ready" tone="warning" icon={<ShieldCheck className="h-4 w-4" />} />
-        <MetricTile label="Next Action" value="Chase 3 invoices" delta="£4,200 expected" tone="teal" icon={<Zap className="h-4 w-4" />} />
+        <MetricTile label="Safe to spend today" value="£3,120" delta="after your tax reserve" tone="success" icon={<Wallet className="h-4 w-4" />} />
+        <MetricTile label="Tax reserve" value="£8,640" delta="for 31 January" tone="warning" icon={<ShieldCheck className="h-4 w-4" />} />
+        <MetricTile label="This week" value="Chase invoice 47" delta="this customer usually pays in 40 days" tone="teal" icon={<Zap className="h-4 w-4" />} />
       </div>
       <div className="mt-6 rounded-xl border border-white/10 bg-white/[0.03] p-5">
         <div className="mb-2 flex items-center justify-between">
-          <span className="text-sm font-semibold text-white">52-Week Cash Forecast</span>
+          <span className="text-sm font-semibold text-white">Cash after tax — next 52 weeks (illustration)</span>
           <div className="flex gap-3 text-xs text-white/60">
             <span className="flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-teal" /> Cash</span>
             <span className="flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-gold" /> Tax due</span>
@@ -138,10 +133,10 @@ function MetricTile({
 
 function StatsStrip() {
   const stats = [
-    { v: "5.5M", l: "UK micro-businesses" },
-    { v: "1.5M+", l: "facing MTD deadline" },
-    { v: "£60K", l: "early revenue generated" },
-    { v: "3", l: "patent-pending innovations" },
+    { v: "4.53M", l: "self-employed people in the UK (ONS, 2026)" },
+    { v: "2.88M", l: "unincorporated landlords (HMRC, 2026)" },
+    { v: "~1M", l: "missed the January 2026 Self Assessment deadline (HMRC)" },
+    { v: "~970k", l: "more people join MTD for Income Tax in April 2027 (HMRC)" },
   ];
   return (
     <section className="gradient-navy py-14 text-white">
@@ -159,17 +154,17 @@ function StatsStrip() {
 
 function Problems() {
   const problems = [
-    { e: "💸", t: "Cash Flow Blindness", d: "60% of UK SME failures are caused by cash flow mismanagement — owners simply can't see what's coming." },
-    { e: "📋", t: "MTD Deadline April 2026", d: "HMRC's MTD mandate requires quarterly digital filing for sole traders earning above £50,000." },
-    { e: "😱", t: "Year-End Tax Shocks", d: "43% of self-assessment filers face an unexpected tax bill they hadn't ring-fenced cash for." },
-    { e: "🏚️", t: "Gap in the Market", d: "Fluidly, the UK's leading cash flow AI, shut down in April 2023 — leaving a gaping hole." },
+    { e: "💸", t: "Tax isn't taken at source", d: "It builds up quietly through the year and falls due in two lumps, on 31 January and 31 July, often with a payment on account added on top." },
+    { e: "📋", t: "MTD reaches more people in April 2027", d: "Making Tax Digital for Income Tax applies above £50,000 from April 2026, above £30,000 from April 2027 and above £20,000 from April 2028." },
+    { e: "😱", t: "The first bill is the biggest shock", d: "Once a bill is over £1,000, HMRC also asks for payments on account. A first profitable year can mean a January payment of one and a half times the year's tax." },
+    { e: "🔍", t: "Today's tools look backwards", d: "Bank tax pots use a flat percentage you pick. Accounting software shows the year so far. Neither tells you what the rest of the year will cost in tax." },
   ];
   return (
     <Section variant="mist">
       <Reveal className="mx-auto max-w-3xl text-center">
         <EyebrowBadge>The problem</EyebrowBadge>
         <h2 className="mt-5 font-serif text-4xl font-semibold leading-tight text-balance lg:text-5xl" style={{ color: "var(--navy)" }}>
-          UK micro-businesses are flying blind — and HMRC is about to close the runway.
+          Self-employed people can't see how much of their money is theirs.
         </h2>
       </Reveal>
       <div className="mt-14 grid gap-6 md:grid-cols-2">
@@ -191,9 +186,9 @@ function Modules() {
   return (
     <Section>
       <Reveal className="mx-auto max-w-3xl text-center">
-        <EyebrowBadge>The platform</EyebrowBadge>
+        <EyebrowBadge>How it will work</EyebrowBadge>
         <h2 className="mt-5 font-serif text-4xl font-semibold leading-tight text-balance lg:text-5xl" style={{ color: "var(--navy)" }}>
-          Three modules. One platform. Complete financial clarity.
+          One number you can act on — and the three views behind it.
         </h2>
       </Reveal>
 
@@ -201,21 +196,21 @@ function Modules() {
         <ModuleCard
           icon={<Radar className="h-6 w-6" />}
           name="CashRadar™"
-          tagline="AI Cash Flow Forecasting"
-          desc="13 to 52-week rolling forecasts powered by our Behavioural Financial DNA Engine. See cash crunches up to 12 weeks before they hit."
+          tagline="Cash-flow forecast"
+          desc="Your cash position for the next 13 to 52 weeks, shown as a range of likely outcomes and learned from your own bank history."
         />
         <ModuleCard
           featured
           icon={<ShieldCheck className="h-6 w-6" />}
           name="TaxShield™"
-          tagline="Real-Time Tax Ring-Fencing"
-          desc="HMRC MTD API connection, real-time tax calculation on every transaction, and one-click quarterly filing. Never face a tax shock again."
+          tagline="Tax position and reserve"
+          desc="Works out the tax you are building up and recommends how much to keep aside, so January and July don't come as a shock."
         />
         <ModuleCard
           icon={<Zap className="h-6 w-6" />}
           name="ActionFlow™"
-          tagline="Prescriptive Action Engine"
-          desc="Weekly action lists, invoice chase recommendations, and a financial health score updated weekly. Always know your next move."
+          tagline="Weekly actions"
+          desc="A short weekly list of plain-English actions, such as which invoice to chase, based on your own numbers."
         />
       </Reveal>
     </Section>
@@ -254,22 +249,23 @@ function ModuleCard({
   );
 }
 
-function BFDESection() {
+function WhyDifferent() {
   const items = [
-    { n: "01", t: "Client Payment Profiling", d: "Learn how each customer actually pays — not just their stated terms." },
-    { n: "02", t: "Seasonal Rhythm Detection", d: "Detect quarterly, monthly and weekly cycles unique to your business." },
-    { n: "03", t: "Unified Cash + Tax Timeline", d: "One forecast that combines what you'll earn and what you'll owe HMRC." },
-    { n: "04", t: "Early Crisis Detection", d: "Spot cash crunches up to 12 weeks before they hit — with time to act." },
+    { n: "01", t: "Built around your whole year", d: "Income tax is worked out on the year as a whole. Clarivance is being designed around that, not around a flat percentage." },
+    { n: "02", t: "A reserve you can rely on", d: "It recommends how much to keep aside and tells you why the figure changed. Every figure is labelled as an estimate." },
+    { n: "03", t: "Payment dates built in", d: "31 January and 31 July, including payments on account, are part of the picture from the start." },
+    { n: "04", t: "Read-only by design", d: "Clarivance will never move your money. You keep your bank and your accounting software." },
   ];
   return (
     <Section variant="navy">
       <Reveal className="mx-auto max-w-3xl text-center">
-        <EyebrowBadge tone="white">The innovation</EyebrowBadge>
+        <EyebrowBadge tone="white">Why it's different</EyebrowBadge>
         <h2 className="mt-5 font-serif text-4xl font-semibold leading-tight text-balance text-white lg:text-5xl">
-          The Behavioural Financial DNA Engine
+          Safe to spend, after tax
         </h2>
         <p className="mx-auto mt-5 max-w-2xl text-lg text-white/70">
-          Every business has a unique financial fingerprint. CLARIVANCE AI learns yours.
+          Bank tax pots use a flat percentage. Accounting software shows the year so far.
+          Clarivance is being built to show what's yours to spend.
         </p>
       </Reveal>
 
@@ -285,8 +281,8 @@ function BFDESection() {
 
       <div className="mt-12 flex justify-center">
         <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-5 py-2.5 text-sm font-semibold text-gold">
-          <Lock className="h-4 w-4" />
-          Patent-Pending Technology · 3 UK IPO Claims Filed · PCT International Application
+          <Calendar className="h-4 w-4" />
+          In development · Paid pilot planned from May 2027
         </div>
       </div>
     </Section>
@@ -294,22 +290,27 @@ function BFDESection() {
 }
 
 function Integrations() {
-  const tools = ["Xero", "QuickBooks", "FreeAgent", "Sage", "Open Banking (PSD2)", "HMRC MTD API"];
+  const connections = [
+    { t: "Your bank, through Open Banking", w: "From the pilot, 2027" },
+    { t: "Xero, QuickBooks and FreeAgent (read-only)", w: "Planned for 2028" },
+    { t: "HMRC Making Tax Digital", w: "Planned for 2028, once HMRC recognises Clarivance" },
+  ];
   return (
     <Section variant="mist">
       <Reveal className="mx-auto max-w-3xl text-center">
         <h2 className="font-serif text-3xl font-semibold lg:text-4xl" style={{ color: "var(--navy)" }}>
-          Works with the tools you already use
+          Planned connections
         </h2>
         <p className="mt-4" style={{ color: "var(--slate-mid)" }}>
-          Connect once. CLARIVANCE AI does the rest.
+          Clarivance will sit alongside the bank and accounting software you already use. Nothing to switch.
         </p>
       </Reveal>
-      <Reveal className="mt-10 flex flex-wrap items-center justify-center gap-3">
-        {tools.map((t) => (
-          <span key={t} className="rounded-full border border-border bg-white px-5 py-3 text-sm font-semibold shadow-sm" style={{ color: "var(--navy)" }}>
-            {t}
-          </span>
+      <Reveal className="mx-auto mt-10 grid max-w-4xl gap-3 md:grid-cols-3">
+        {connections.map((c) => (
+          <div key={c.t} className="rounded-2xl border border-border bg-white px-5 py-4 text-center shadow-sm">
+            <div className="text-sm font-semibold" style={{ color: "var(--navy)" }}>{c.t}</div>
+            <div className="mt-1 text-xs" style={{ color: "var(--slate-mid)" }}>{c.w}</div>
+          </div>
         ))}
       </Reveal>
     </Section>
@@ -325,7 +326,7 @@ function FounderQuote() {
           <blockquote className="mt-2 font-serif text-2xl leading-relaxed text-balance lg:text-3xl" style={{ color: "var(--navy)" }}>
             I've worked with over 30 sole trader clients. Every single one has been caught
             out by an unexpected tax bill or a cash crunch they didn't see coming.
-            That's the problem CLARIVANCE AI was built to eliminate.
+            That's the problem CLARIVANCE AI is being built to solve.
           </blockquote>
           <div className="mt-7 flex items-center gap-4">
             <div className="flex h-12 w-12 items-center justify-center rounded-full font-serif text-lg font-bold text-white gradient-teal-navy">
@@ -333,7 +334,7 @@ function FounderQuote() {
             </div>
             <div>
               <div className="font-semibold" style={{ color: "var(--navy)" }}>Vinutha Chandrashekara</div>
-              <div className="text-sm" style={{ color: "var(--slate-mid)" }}>Founder & CEO, CLARIVANCE AI</div>
+              <div className="text-sm" style={{ color: "var(--slate-mid)" }}>Co-founder & CEO, CLARIVANCE AI</div>
             </div>
           </div>
         </div>
@@ -349,12 +350,12 @@ function WaitlistCTA() {
         background: "radial-gradient(ellipse 50% 60% at 50% 50%, color-mix(in oklab, var(--gold) 25%, transparent), transparent 70%)"
       }} />
       <div className="relative mx-auto max-w-3xl px-5 text-center lg:px-8">
-        <EyebrowBadge tone="white"><Calendar className="h-3.5 w-3.5" /> April 2026 deadline</EyebrowBadge>
+        <EyebrowBadge tone="white"><Calendar className="h-3.5 w-3.5" /> April 2027: MTD for income over £30,000</EyebrowBadge>
         <h2 className="mt-5 font-serif text-4xl font-semibold leading-tight text-balance lg:text-5xl">
-          MTD is coming. Get ahead of it.
+          Get ahead of your next tax bill.
         </h2>
         <p className="mx-auto mt-5 max-w-xl text-lg text-white/75">
-          Reserve your free 90-day trial. We'll be in touch when CLARIVANCE AI is ready for you.
+          Join the waitlist. We'll be in touch about the paid pilot (from May 2027) and the launch (September 2027).
         </p>
         <div className="mx-auto mt-8 max-w-md">
           <Link
@@ -362,7 +363,7 @@ function WaitlistCTA() {
             className="inline-flex w-full items-center justify-center rounded-xl bg-gold px-6 py-4 text-base font-semibold shadow-lg transition-all hover:brightness-105"
             style={{ color: "var(--navy)" }}
           >
-            Reserve My Spot <ArrowRight className="ml-2 h-5 w-5" />
+            Join the Waitlist <ArrowRight className="ml-2 h-5 w-5" />
           </Link>
         </div>
       </div>

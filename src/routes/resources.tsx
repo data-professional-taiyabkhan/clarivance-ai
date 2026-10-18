@@ -10,7 +10,7 @@ export const Route = createFileRoute("/resources")({
       { title: "MTD Guide — Making Tax Digital for UK sole traders | CLARIVANCE AI" },
       { name: "description", content: "Everything UK sole traders need to know about Making Tax Digital (MTD ITSA) — deadlines, who's affected, and what to do next." },
       { property: "og:title", content: "The Complete MTD Guide for UK Sole Traders" },
-      { property: "og:description", content: "MTD ITSA deadlines from April 2026. Get prepared with our practical guide." },
+      { property: "og:description", content: "Making Tax Digital for Income Tax: who is affected from April 2026, 2027 and 2028, and what to do next." },
       { property: "og:url", content: SITE_URL + "/resources" },
     ],
     links: [{ rel: "canonical", href: SITE_URL + "/resources" }],
@@ -46,12 +46,12 @@ function ResourcesPage() {
               </div>
               <div>
                 <h3 className="font-serif text-xl font-semibold text-red-700">
-                  MTD Deadline: April 2026
+                  Next MTD cohort: April 2027
                 </h3>
                 <p className="mt-2 text-base text-red-900/80">
-                  If your self-employment or property income is above £50,000, you must comply
-                  with Making Tax Digital for Income Tax Self Assessment (MTD ITSA) from
-                  6 April 2026 — quarterly digital filing becomes mandatory.
+                  If your qualifying self-employment and property income is above £30,000, Making Tax
+                  Digital for Income Tax applies to you from 6 April 2027. It has applied to income
+                  above £50,000 since 6 April 2026.
                 </p>
               </div>
             </div>
@@ -62,9 +62,9 @@ function ResourcesPage() {
               The MTD timeline
             </h2>
             <div className="mt-8 space-y-4">
-              <DeadlineRow tone="danger" date="April 2026" who="Income above £50,000" status="NOW URGENT" />
+              <DeadlineRow tone="danger" date="April 2026" who="Income above £50,000" status="IN FORCE" />
               <DeadlineRow tone="warning" date="April 2027" who="Income above £30,000" status="PREPARE NOW" />
-              <DeadlineRow tone="teal" date="April 2028" who="All self-employed" status="COMING SOON" />
+              <DeadlineRow tone="teal" date="April 2028" who="Income above £20,000" status="COMING SOON" />
             </div>
           </div>
 
@@ -74,11 +74,11 @@ function ResourcesPage() {
             </h2>
             <div className="mt-8 space-y-5">
               {[
-                { t: "Confirm your obligation", d: "Check your latest self-assessment income. Above £50K of self-employment + property income? You're in the April 2026 cohort." },
-                { t: "Get MTD-compatible software", d: "HMRC requires you to keep digital records and submit through approved software. CLARIVANCE AI is built to qualify." },
-                { t: "Connect your bank and accounting tools", d: "Open Banking + Xero/QuickBooks integration means your records stay current automatically." },
-                { t: "File your first quarterly update", d: "After 6 April 2026, you'll submit four quarterly summaries plus a final declaration. We file them in one click." },
-                { t: "Ring-fence tax as you earn", d: "The biggest cause of tax shocks isn't the tax itself — it's spending the money before it's owed. TaxShield™ holds it back automatically." },
+                { t: "Confirm your obligation", d: "Check the qualifying income on your Self Assessment return: self-employment plus property income. Above £30,000 means MTD applies to you from April 2027." },
+                { t: "Choose HMRC-recognised software", d: "HMRC requires digital records and quarterly updates sent through software it recognises. Clarivance won't file at launch, so you will need recognised filing software as well." },
+                { t: "Keep your records up to date", d: "Connecting your bank feed to your accounting software keeps your digital records current with less manual entry." },
+                { t: "Send your quarterly updates", d: "Four quarterly updates a year, due 7 August, 7 November, 7 February and 7 May, plus a final declaration after the tax year ends." },
+                { t: "Set tax aside as you earn", d: "The biggest cause of tax shocks isn't the tax itself — it's spending the money before it's owed. Keep a reserve in a separate account; Clarivance is being built to tell you how much." },
               ].map((s, i) => (
                 <div key={i} className="flex gap-5 rounded-2xl border border-border bg-white p-6 card-elevated">
                   <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full font-serif text-xl font-bold text-white gradient-teal-navy">
@@ -104,12 +104,12 @@ function ResourcesPage() {
         </div>
         <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {[
-            { e: "📋", t: "MTD ITSA: The Complete Sole Trader Guide", d: "Everything you need to comply with HMRC's quarterly filing rules from April 2026." },
+            { e: "📋", t: "MTD ITSA: The Complete Sole Trader Guide", d: "HMRC's quarterly update rules, including the April 2027 and April 2028 thresholds." },
             { e: "💰", t: "How to Build a 13-Week Cash Flow Forecast", d: "The single most important spreadsheet you'll ever build — and how to do it in an afternoon." },
             { e: "📊", t: "Why UK Sole Traders Get Surprised by Their Tax Bill", d: "The four mental models that lead to year-end tax shocks — and how to avoid them." },
-            { e: "🏦", t: "Open Banking for Small Businesses", d: "What it is, why it's safe, and how it can save you 4 hours a week of manual data entry." },
-            { e: "⚡", t: "The Weekly Financial Health Check", d: "A 15-minute Friday routine that will keep your business out of trouble forever." },
-            { e: "🤖", t: "What the BFDE Actually Does (Plain English)", d: "Demystifying the Behavioural Financial DNA Engine — without the jargon." },
+            { e: "🏦", t: "Open Banking for Small Businesses", d: "What it is, how read-only access works, and what to check before you connect a bank account." },
+            { e: "⚡", t: "The Weekly Financial Health Check", d: "A 15-minute weekly routine for keeping on top of cash and tax." },
+            { e: "🗓️", t: "Payments on Account, Explained", d: "Why your first January bill can be one and a half times what you expect, and how to plan for it." },
           ].map((a, i) => (
             <article key={i} className="group rounded-2xl border border-border bg-white p-7 card-elevated">
               <div className="text-3xl">{a.e}</div>
@@ -130,7 +130,7 @@ function ResourcesPage() {
             className="inline-flex items-center justify-center rounded-xl bg-gold px-6 py-3.5 text-base font-semibold shadow-md transition-all hover:brightness-105"
             style={{ color: "var(--navy)" }}
           >
-            Get MTD-ready with CLARIVANCE AI <ArrowRight className="ml-2 h-4 w-4" />
+            Join the CLARIVANCE AI waitlist <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </div>
       </Section>
