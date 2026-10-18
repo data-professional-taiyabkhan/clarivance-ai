@@ -21,7 +21,6 @@ export default defineConfig({
       { path: "/resources" },
       { path: "/faq" },
       { path: "/contact" },
-      { path: "/welcome" },
       { path: "/privacy" },
       { path: "/terms" },
       { path: "/cookies" },
