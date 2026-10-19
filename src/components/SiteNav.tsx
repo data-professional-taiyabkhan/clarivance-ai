@@ -1,4 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
+import { PILOT_SIGNIN } from "@/lib/pilot";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Logo } from "./Logo";
@@ -62,7 +63,10 @@ export function SiteNav() {
             ))}
           </nav>
 
-          <div className="hidden md:block">
+          <div className="hidden items-center gap-4 md:flex">
+            <a href={PILOT_SIGNIN} className="text-sm font-medium text-ink transition-colors hover:text-teal">
+              Pilot sign in
+            </a>
             <Link
               to="/contact"
               className="inline-flex items-center rounded-lg bg-gold px-4 py-2.5 text-sm font-semibold text-navy shadow-sm transition-all hover:brightness-105 hover:shadow-md"
@@ -94,6 +98,9 @@ export function SiteNav() {
                   {l.label}
                 </Link>
               ))}
+              <a href={PILOT_SIGNIN} className="py-3 text-base font-medium text-ink">
+                Pilot sign in
+              </a>
               <Link
                 to="/contact"
                 className="mt-2 inline-flex items-center justify-center rounded-lg bg-gold px-4 py-3 text-sm font-semibold"

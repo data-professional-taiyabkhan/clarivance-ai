@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { PILOT_REGISTER } from "@/lib/pilot";
 import { SITE_URL } from "./__root";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Section, EyebrowBadge } from "@/components/ui-bits";
@@ -21,7 +22,6 @@ export const Route = createFileRoute("/pricing")({
 const plans = [
   {
     name: "Starter",
-    stripeLink: "https://buy.stripe.com/5kQ5kCax10ls8XE3QnabK01",
     monthly: 66,
     audience: "For sole traders and freelancers",
     features: [
@@ -36,7 +36,6 @@ const plans = [
   },
   {
     name: "Growth",
-    stripeLink: "https://buy.stripe.com/14AdR8ax19W2a1I3QnabK02",
     monthly: 124,
     audience: "For micro-businesses",
     features: [
@@ -52,7 +51,6 @@ const plans = [
   },
   {
     name: "Pro",
-    stripeLink: "https://buy.stripe.com/9B6bJ09sX2tA2zg0EbabK03",
     monthly: 249,
     audience: "For growth businesses & accountancy firms",
     features: [
@@ -146,11 +144,11 @@ function PlanCard({ plan }: { plan: (typeof plans)[number] }) {
       </ul>
       <div className="mt-8">
         <a
-          href={plan.stripeLink}
+          href={PILOT_REGISTER}
           className="inline-flex w-full items-center justify-center rounded-xl bg-gold px-6 py-3.5 text-base font-semibold shadow-md transition-all hover:brightness-105 hover:shadow-lg"
           style={{ color: "var(--navy)" }}
         >
-          Start Free Trial <ArrowRight className="ml-2 h-4 w-4" />
+          Join the pilot <ArrowRight className="ml-2 h-4 w-4" />
         </a>
         <p
           className="mt-2.5 text-center text-xs"
