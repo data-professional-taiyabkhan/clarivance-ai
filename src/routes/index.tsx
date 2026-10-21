@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SITE_URL } from "./__root";
+import { PILOT_REGISTER } from "@/lib/pilot";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Section, EyebrowBadge, PrimaryCTA, OutlineCTA, Reveal } from "@/components/ui-bits";
 import { CashFlowChart } from "@/components/Charts";
@@ -75,6 +76,13 @@ function Hero() {
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <PrimaryCTA to="/contact">Join the Waitlist — Free</PrimaryCTA>
             <OutlineCTA to="/product">See How It Works <ArrowRight className="ml-2 h-4 w-4" /></OutlineCTA>
+            <a
+              href={PILOT_REGISTER}
+              className="inline-flex items-center justify-center rounded-xl border-2 px-6 py-3.5 text-base font-semibold transition-all hover:bg-navy/5"
+              style={{ color: "var(--teal)", borderColor: "color-mix(in oklab, var(--teal) 40%, transparent)" }}
+            >
+              Try the pilot <ArrowRight className="ml-2 h-4 w-4" />
+            </a>
           </div>
           <p className="mt-5 text-sm" style={{ color: "var(--slate-mid)" }}>
             No credit card required · Cancel anytime · UK data only (AWS London)
