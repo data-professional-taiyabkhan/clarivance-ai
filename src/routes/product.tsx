@@ -3,6 +3,7 @@ import { SITE_URL } from "./__root";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Section, EyebrowBadge, PrimaryCTA } from "@/components/ui-bits";
 import { CashWarningChart } from "@/components/Charts";
+import { useDemo, CountUp, at } from "@/components/motion";
 import { ArrowRight, ShieldCheck, AlertCircle, Clock, CheckCircle2, Lock } from "lucide-react";
 
 export const Route = createFileRoute("/product")({
@@ -62,6 +63,8 @@ function FeatureItem({ children }: { children: React.ReactNode }) {
 }
 
 function CashRadarSection() {
+  // The forecast draws across the year; the dip is flagged as the line reaches it.
+  const [panelRef, phase] = useDemo<HTMLDivElement>();
   return (
     <Section>
       <div className="grid items-center gap-12 lg:grid-cols-2">
@@ -84,10 +87,10 @@ function CashRadarSection() {
             <FeatureItem>Connects to Xero, QuickBooks, FreeAgent, Sage & Open Banking</FeatureItem>
           </ul>
         </div>
-        <div className="rounded-2xl gradient-navy p-7 shadow-2xl ring-1 ring-white/10">
+        <div ref={panelRef} data-demo={phase} className="rounded-2xl gradient-navy p-7 shadow-2xl ring-1 ring-white/10">
           <div className="flex items-center justify-between">
             <span className="text-sm font-semibold text-white">Cash forecast — next 52 weeks</span>
-            <span className="rounded-full bg-red-500/20 px-2.5 py-1 text-xs font-semibold text-red-300">
+            <span data-demo-pop style={at(0.85)} className="rounded-full bg-red-500/20 px-2.5 py-1 text-xs font-semibold text-red-300">
               <AlertCircle className="mr-1 inline h-3 w-3" />
               Dip detected
             </span>
@@ -116,20 +119,24 @@ function CashRadarSection() {
 }
 
 function TaxShieldSection() {
+  // Tax is set aside line by line; the total counts up, then the filing shows as ready.
+  const [panelRef, phase] = useDemo<HTMLDivElement>();
   return (
     <Section variant="mist">
       <div className="grid items-center gap-12 lg:grid-cols-2">
-        <div className="rounded-2xl gradient-navy p-7 shadow-2xl ring-1 ring-white/10 lg:order-1">
+        <div ref={panelRef} data-demo={phase} className="rounded-2xl gradient-navy p-7 shadow-2xl ring-1 ring-white/10 lg:order-1">
           <div className="flex items-center justify-between">
             <span className="text-sm font-semibold text-white">TaxShield™ — Live</span>
-            <span className="rounded-full bg-green-500/20 px-2.5 py-1 text-xs font-semibold text-green-300">
+            <span data-demo-pop style={at(1.35)} className="rounded-full bg-green-500/20 px-2.5 py-1 text-xs font-semibold text-green-300">
               <CheckCircle2 className="mr-1 inline h-3 w-3" />
               MTD Q2 filing — READY
             </span>
           </div>
           <div className="mt-6 rounded-xl border border-gold/30 bg-gold/10 p-6">
             <div className="text-xs uppercase tracking-wider text-gold">Tax Ring-Fenced</div>
-            <div className="mt-2 font-serif text-5xl font-semibold text-gold">£8,640</div>
+            <div className="mt-2 font-serif text-5xl font-semibold text-gold">
+              <CountUp to={8640} prefix="£" phase={phase} delay={150} />
+            </div>
             <div className="mt-2 text-sm text-white/70">Income tax · Class 4 NI · VAT</div>
           </div>
           <div className="mt-5 space-y-2.5">
@@ -137,8 +144,8 @@ function TaxShieldSection() {
               { l: "Income Tax", v: "£5,820" },
               { l: "Class 4 NI", v: "£1,940" },
               { l: "VAT (Q2)", v: "£880" },
-            ].map((r) => (
-              <div key={r.l} className="flex items-center justify-between rounded-lg bg-white/5 px-4 py-2.5 text-sm">
+            ].map((r, i) => (
+              <div key={r.l} data-demo-rise style={at(0.2 + i * 0.18)} className="flex items-center justify-between rounded-lg bg-white/5 px-4 py-2.5 text-sm">
                 <span className="text-white/70">{r.l}</span>
                 <span className="font-semibold text-white">{r.v}</span>
               </div>
@@ -173,6 +180,8 @@ function TaxShieldSection() {
 }
 
 function ActionFlowSection() {
+  // This week's actions arrive in priority order, then the health score fills.
+  const [panelRef, phase] = useDemo<HTMLDivElement>();
   return (
     <Section>
       <div className="grid items-center gap-12 lg:grid-cols-2">
@@ -194,25 +203,28 @@ function ActionFlowSection() {
             <FeatureItem>Client risk scoring</FeatureItem>
           </ul>
         </div>
-        <div className="rounded-2xl gradient-navy p-7 shadow-2xl ring-1 ring-white/10">
+        <div ref={panelRef} data-demo={phase} className="rounded-2xl gradient-navy p-7 shadow-2xl ring-1 ring-white/10">
           <div className="mb-5 flex items-center justify-between">
             <span className="text-sm font-semibold text-white">This week's actions</span>
             <span className="text-xs text-white/50">Updated 2h ago</span>
           </div>
           <div className="space-y-3">
             <ActionItem
+              step={0}
               priority="HIGH PRIORITY"
               tone="danger"
               title="Chase invoice #1182 — Studio Bright"
               meta="42 days overdue · £3,400 · Predicted pay date drifting"
             />
             <ActionItem
+              step={1}
               priority="THIS WEEK"
               tone="warning"
               title="Set aside £1,240 for VAT Q2"
               meta="MTD filing due in 18 days"
             />
             <ActionItem
+              step={2}
               priority="PLAN AHEAD"
               tone="teal"
               title="Defer hardware purchase to August"
@@ -222,10 +234,10 @@ function ActionFlowSection() {
           <div className="mt-6 rounded-xl border border-white/10 bg-white/[0.03] p-5">
             <div className="flex items-center justify-between">
               <span className="text-xs uppercase tracking-wider text-white/60">Financial Health Score</span>
-              <span className="font-serif text-3xl font-semibold text-gold">82<span className="text-base text-white/40">/100</span></span>
+              <span className="font-serif text-3xl font-semibold text-gold"><CountUp to={82} phase={phase} delay={600} duration={1000} /><span className="text-base text-white/40">/100</span></span>
             </div>
             <div className="mt-3 h-2 w-full overflow-hidden rounded-full bg-white/10">
-              <div className="h-full rounded-full" style={{ width: "82%", background: "linear-gradient(90deg, var(--teal), var(--gold))" }} />
+              <div data-demo-bar className="h-full rounded-full" style={{ ...at(0.6), width: "82%", background: "linear-gradient(90deg, var(--teal), var(--gold))" }} />
             </div>
           </div>
         </div>
@@ -234,7 +246,7 @@ function ActionFlowSection() {
   );
 }
 
-function ActionItem({ priority, tone, title, meta }: { priority: string; tone: "danger" | "warning" | "teal"; title: string; meta: string }) {
+function ActionItem({ step, priority, tone, title, meta }: { step: number; priority: string; tone: "danger" | "warning" | "teal"; title: string; meta: string }) {
   const styles =
     tone === "danger"
       ? "bg-red-500/10 text-red-300 ring-red-500/30"
@@ -242,7 +254,7 @@ function ActionItem({ priority, tone, title, meta }: { priority: string; tone: "
         ? "bg-gold/15 text-gold ring-gold/30"
         : "bg-teal/15 text-teal-soft ring-teal/30";
   return (
-    <div className="rounded-xl border border-white/10 bg-white/[0.03] p-4">
+    <div data-demo-rise style={at(step * 0.14)} className="rounded-xl border border-white/10 bg-white/[0.03] p-4">
       <span className={`inline-block rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider ring-1 ${styles}`}>
         {priority}
       </span>

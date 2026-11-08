@@ -4,6 +4,7 @@ import { PILOT_REGISTER } from "@/lib/pilot";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Section, EyebrowBadge, PrimaryCTA, OutlineCTA, Reveal } from "@/components/ui-bits";
 import { CashFlowChart } from "@/components/Charts";
+import { useDemo } from "@/components/motion";
 import { ArrowRight, ShieldCheck, Radar, Zap, Lock, TrendingUp, AlertTriangle, Wallet, Calendar } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -78,7 +79,7 @@ function Hero() {
             <OutlineCTA to="/product">See How It Works <ArrowRight className="ml-2 h-4 w-4" /></OutlineCTA>
             <a
               href={PILOT_REGISTER}
-              className="inline-flex items-center justify-center rounded-xl border-2 px-6 py-3.5 text-base font-semibold transition-all hover:bg-navy/5"
+              className="inline-flex items-center justify-center rounded-xl border-2 px-6 py-3.5 text-base font-semibold transition-all hover:bg-navy/5 motion-safe:active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2"
               style={{ color: "var(--teal)", borderColor: "color-mix(in oklab, var(--teal) 40%, transparent)" }}
             >
               Try the pilot <ArrowRight className="ml-2 h-4 w-4" />
@@ -98,8 +99,10 @@ function Hero() {
 }
 
 function DashboardMockup() {
+  // The forecast draws itself once the panel has risen into place.
+  const [panelRef, phase] = useDemo<HTMLDivElement>({ delay: 450 });
   return (
-    <div className="rounded-2xl gradient-navy p-6 shadow-2xl ring-1 ring-white/10 lg:p-8">
+    <div ref={panelRef} data-demo={phase} className="rounded-2xl gradient-navy p-6 shadow-2xl ring-1 ring-white/10 lg:p-8">
       <div className="mb-6 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <div className="h-2.5 w-2.5 rounded-full bg-red-400/70" />

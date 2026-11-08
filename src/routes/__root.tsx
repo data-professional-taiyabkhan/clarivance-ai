@@ -1,6 +1,7 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { useMarkHydrated } from "@/components/motion";
 
 export const SITE_URL = "https://www.clarivanceai.co.uk";
 
@@ -67,7 +68,10 @@ export const Route = createRootRoute({
       {
         // Enable scroll-reveal animations only when JS is available. Runs in
         // <head> before paint, so there's no flash and no-JS users see content.
-        children: "document.documentElement.classList.add('reveal-on')",
+        // Safety net: if the app hasn't started within 4s (script blocked or failed),
+        // drop the class so nothing is left hidden.
+        children:
+          "document.documentElement.classList.add('reveal-on');setTimeout(function(){if(!window.__clvHydrated)document.documentElement.classList.remove('reveal-on')},4000)",
       },
       {
         type: "application/ld+json",
@@ -119,5 +123,6 @@ function RootShell({ children }: { children: React.ReactNode }) {
 }
 
 function RootComponent() {
+  useMarkHydrated();
   return <Outlet />;
 }

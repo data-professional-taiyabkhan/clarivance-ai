@@ -109,7 +109,7 @@ export function PrimaryCTA({ to, children }: { to: string; children: ReactNode }
   return (
     <Link
       to={to}
-      className="inline-flex items-center justify-center rounded-xl bg-gold px-6 py-3.5 text-base font-semibold shadow-md transition-all hover:brightness-105 hover:shadow-lg"
+      className="inline-flex items-center justify-center rounded-xl bg-gold px-6 py-3.5 text-base font-semibold shadow-md transition-all hover:brightness-105 hover:shadow-lg motion-safe:active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2"
       style={{ color: "var(--navy)" }}
     >
       {children}
@@ -133,7 +133,7 @@ export function OutlineCTA({
   return (
     <Link
       to={to}
-      className={`inline-flex items-center justify-center rounded-xl border-2 px-6 py-3.5 text-base font-semibold transition-all ${styles}`}
+      className={`inline-flex items-center justify-center rounded-xl border-2 px-6 py-3.5 text-base font-semibold transition-all motion-safe:active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 ${styles}`}
       style={variant === "dark" ? { color: "var(--navy)", borderColor: "color-mix(in oklab, var(--navy) 20%, transparent)" } : undefined}
     >
       {children}

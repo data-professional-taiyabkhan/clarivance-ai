@@ -60,7 +60,13 @@ export const getRouter = () => {
     routeTree,
     context: {},
     scrollRestoration: true,
+    // New pages start at the top straight away. The global smooth scrolling (styles.css)
+    // would otherwise make each new page glide up from the previous page's scroll position.
+    // In-page #anchor links still scroll smoothly.
+    scrollRestorationBehavior: "instant",
     defaultPreloadStaleTime: 0,
+    // Smooth page changes via the View Transitions API (styled in styles.css; a plain swap where unsupported).
+    defaultViewTransition: true,
     defaultErrorComponent: DefaultErrorComponent,
   });
 

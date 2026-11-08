@@ -1,4 +1,7 @@
-// Shared SVG illustration components for dashboards
+// Shared SVG illustration components for dashboards.
+// The data-demo-* attributes let a parent panel animate them (see components/motion.tsx);
+// with no parent animation they render exactly as a static chart.
+import { at } from "./motion";
 
 export function CashFlowChart() {
   return (
@@ -13,17 +16,22 @@ export function CashFlowChart() {
       {[0, 1, 2, 3].map((i) => (
         <line key={i} x1="20" x2="380" y1={30 + i * 40} y2={30 + i * 40} stroke="white" strokeOpacity="0.06" />
       ))}
-      {/* Tax line (gold dashed) */}
-      <path d="M20 110 L80 105 L140 100 L200 95 L260 88 L320 82 L380 78"
-        stroke="oklch(0.75 0.12 85)" strokeWidth="2" strokeDasharray="4 4" fill="none" />
-      {/* Cash forecast (teal) */}
-      <path d="M20 80 L60 70 L100 75 L140 55 L180 60 L220 45 L260 50 L300 35 L340 40 L380 25"
-        stroke="oklch(0.55 0.08 210)" strokeWidth="2.5" fill="none" />
-      <path d="M20 80 L60 70 L100 75 L140 55 L180 60 L220 45 L260 50 L300 35 L340 40 L380 25 L380 170 L20 170 Z"
-        fill="url(#cfFill)" />
+      <g data-demo-wipe style={{ "--wipe": "1.4s" } as React.CSSProperties}>
+        {/* Tax line (gold dashed) */}
+        <path d="M20 110 L80 105 L140 100 L200 95 L260 88 L320 82 L380 78"
+          stroke="oklch(0.75 0.12 85)" strokeWidth="2" strokeDasharray="4 4" fill="none" />
+        {/* Cash forecast (teal) */}
+        <path d="M20 80 L60 70 L100 75 L140 55 L180 60 L220 45 L260 50 L300 35 L340 40 L380 25"
+          stroke="oklch(0.55 0.08 210)" strokeWidth="2.5" fill="none" />
+        <path d="M20 80 L60 70 L100 75 L140 55 L180 60 L220 45 L260 50 L300 35 L340 40 L380 25 L380 170 L20 170 Z"
+          fill="url(#cfFill)" />
+      </g>
       {/* end dot */}
-      <circle cx="380" cy="25" r="5" fill="oklch(0.75 0.12 85)" />
-      <circle cx="380" cy="25" r="9" fill="oklch(0.75 0.12 85)" fillOpacity="0.25" />
+      <g data-demo-pop style={at(1.3)}>
+        <circle cx="380" cy="25" r="5" fill="oklch(0.75 0.12 85)" />
+        <circle cx="380" cy="25" r="9" fill="oklch(0.75 0.12 85)" fillOpacity="0.25" />
+      </g>
+      <circle data-demo-pulse style={at(1.35)} cx="380" cy="25" r="9" fill="oklch(0.75 0.12 85)" fillOpacity="0" />
     </svg>
   );
 }
@@ -40,17 +48,24 @@ export function CashWarningChart() {
       {[0, 1, 2, 3].map((i) => (
         <line key={i} x1="20" x2="380" y1={30 + i * 40} y2={30 + i * 40} stroke="white" strokeOpacity="0.06" />
       ))}
-      <path d="M20 60 L60 55 L100 70 L140 80 L180 110 L220 130 L260 115 L300 95 L340 70 L380 50"
-        stroke="oklch(0.55 0.08 210)" strokeWidth="2.5" fill="none" />
-      <path d="M20 60 L60 55 L100 70 L140 80 L180 110 L220 130 L260 115 L300 95 L340 70 L380 50 L380 170 L20 170 Z"
-        fill="url(#cw)" />
-      {/* warning marker */}
-      <circle cx="220" cy="130" r="6" fill="oklch(0.62 0.20 25)" />
-      <circle cx="220" cy="130" r="11" fill="oklch(0.62 0.20 25)" fillOpacity="0.25" />
-      <text x="232" y="128" fill="oklch(0.78 0.15 25)" fontSize="10" fontFamily="Inter, sans-serif">
-        ⚠ Week 22 dip
-      </text>
-      <circle cx="380" cy="50" r="5" fill="oklch(0.75 0.12 85)" />
+      <g data-demo-wipe>
+        <path d="M20 60 L60 55 L100 70 L140 80 L180 110 L220 130 L260 115 L300 95 L340 70 L380 50"
+          stroke="oklch(0.55 0.08 210)" strokeWidth="2.5" fill="none" />
+        <path d="M20 60 L60 55 L100 70 L140 80 L180 110 L220 130 L260 115 L300 95 L340 70 L380 50 L380 170 L20 170 Z"
+          fill="url(#cw)" />
+      </g>
+      {/* warning marker: lands as the line reaches the dip */}
+      <g data-demo-pop style={at(0.7)}>
+        <circle cx="220" cy="130" r="6" fill="oklch(0.62 0.20 25)" />
+        <circle cx="220" cy="130" r="11" fill="oklch(0.62 0.20 25)" fillOpacity="0.25" />
+        <text x="232" y="128" fill="oklch(0.78 0.15 25)" fontSize="10" fontFamily="Inter, sans-serif">
+          ⚠ Week 22 dip
+        </text>
+      </g>
+      <circle data-demo-pulse style={at(0.75)} cx="220" cy="130" r="11" fill="oklch(0.62 0.20 25)" fillOpacity="0" />
+      <g data-demo-pop style={at(1.25)}>
+        <circle cx="380" cy="50" r="5" fill="oklch(0.75 0.12 85)" />
+      </g>
     </svg>
   );
 }

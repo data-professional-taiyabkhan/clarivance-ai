@@ -41,7 +41,7 @@ export function SiteNav() {
       </a>
 
       <header
-        className={`sticky top-0 z-50 w-full backdrop-blur-md transition-all ${
+        className={`site-header sticky top-0 z-50 w-full backdrop-blur-md transition-all ${
           scrolled ? "bg-white/90 border-b border-border" : "bg-white/70"
         }`}
       >
@@ -55,10 +55,18 @@ export function SiteNav() {
               <Link
                 key={l.to}
                 to={l.to}
-                className="text-sm font-medium text-ink transition-colors hover:text-teal"
+                className="relative text-sm font-medium text-ink transition-colors hover:text-teal"
                 activeProps={{ style: { color: "var(--teal)" } }}
               >
-                {l.label}
+                {({ isActive }) => (
+                  <>
+                    {l.label}
+                    {/* Underline for the current page; glides to the next link on page change */}
+                    {isActive && (
+                      <span aria-hidden className="nav-indicator absolute inset-x-0 -bottom-1.5 h-0.5 rounded-full bg-teal" />
+                    )}
+                  </>
+                )}
               </Link>
             ))}
           </nav>
@@ -69,7 +77,7 @@ export function SiteNav() {
             </a>
             <Link
               to="/contact"
-              className="inline-flex items-center rounded-lg bg-gold px-4 py-2.5 text-sm font-semibold text-navy shadow-sm transition-all hover:brightness-105 hover:shadow-md"
+              className="inline-flex items-center rounded-lg bg-gold px-4 py-2.5 text-sm font-semibold text-navy shadow-sm transition-all hover:brightness-105 hover:shadow-md motion-safe:active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2"
               style={{ color: "var(--navy)" }}
             >
               Join Waitlist
@@ -82,12 +90,16 @@ export function SiteNav() {
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
           >
-            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {open ? (
+              <X key="close" className="h-6 w-6 motion-safe:animate-in motion-safe:spin-in-90 motion-safe:fade-in motion-safe:duration-200" />
+            ) : (
+              <Menu key="open" className="h-6 w-6 motion-safe:animate-in motion-safe:fade-in motion-safe:duration-200" />
+            )}
           </button>
         </div>
 
         {open && (
-          <div className="border-t border-border bg-white md:hidden">
+          <div className="border-t border-border bg-white md:hidden motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-top-2 motion-safe:duration-200">
             <div className="flex flex-col px-5 py-4">
               {links.map((l) => (
                 <Link
